@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 dependencies:
   axios:
     specifier: ^1.4.0
@@ -76,9 +72,12 @@ devDependencies:
   cssnano:
     specifier: ^6.0.0
     version: registry.npmmirror.com/cssnano@6.0.1(postcss@8.4.24)
-  cz-conventional-changelog:
-    specifier: ^3.3.0
-    version: registry.npmmirror.com/cz-conventional-changelog@3.3.0
+  cz-git:
+    specifier: ^1.6.1
+    version: registry.npmmirror.com/cz-git@1.6.1
+  czg:
+    specifier: ^1.6.1
+    version: registry.npmmirror.com/czg@1.6.1
   dayjs:
     specifier: ^1.11.1
     version: registry.npmmirror.com/dayjs@1.11.8
@@ -4137,6 +4136,19 @@ packages:
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
+    dev: true
+
+  registry.npmmirror.com/cz-git@1.6.1:
+    resolution: {integrity: sha512-+ohk/MFETERw4o/WpN3hUk7GM8oAwnaQI/uDuREGm4/B+G3DghGvNZQ/0MbFqZHWgKWvMzNZI6eKmPo0uPCu1A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/cz-git/-/cz-git-1.6.1.tgz}
+    name: cz-git
+    version: 1.6.1
+    dev: true
+
+  registry.npmmirror.com/czg@1.6.1:
+    resolution: {integrity: sha512-F6xzZ+ooLqCOLdsT7miEZRInaTjoglY5CjT5Hc4Yg9gxwLS2zjfUUFGvemVgUZI+ggzFAHE6VL0PA+4ukbOWgQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/czg/-/czg-1.6.1.tgz}
+    name: czg
+    version: 1.6.1
+    hasBin: true
     dev: true
 
   registry.npmmirror.com/dargs@7.0.0:
@@ -8971,3 +8983,7 @@ packages:
     version: 0.1.0
     engines: {node: '>=10'}
     dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false

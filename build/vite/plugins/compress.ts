@@ -1,5 +1,5 @@
 /**
- * Used to package and output gzip. Note that this does not work properly in Vite, the specific reason is still being investigated
+ * 用于打包和输出gzip;
  * https://github.com/anncwb/vite-plugin-compression
  */
 import type { PluginOption } from 'vite';

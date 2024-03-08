@@ -11,16 +11,20 @@ import { getConfigFileName } from '../../getConfigFileName';
 import pkg from '../../../package.json';
 
 interface CreateConfigParams {
+  // windows对象下的存储配置的属性名
   configName: string;
+  // 存储配置的对象
   config: any;
+  // JS文件名
   configFileName?: string;
 }
 
 function createConfig(params: CreateConfigParams) {
   const { configName, config, configFileName } = params;
   try {
+    // 变量字符串
     const windowConf = `window.${configName}`;
-    // 确保变量不会被修改
+    // 将配置的对象以JSON字符串格式拼接到变量字符串后面，最后用正则将空格去掉，确保变量不会被修改
     let configStr = `${windowConf}=${JSON.stringify(config)};`;
     configStr += `
       Object.freeze(${windowConf});
@@ -30,7 +34,9 @@ function createConfig(params: CreateConfigParams) {
       });
     `.replace(/\s/g, '');
 
+    // 创建dist文件夹
     fs.mkdirp(getRootPath(OUTPUT_DIR));
+    // 将字符串写入到dist文件下的指定JS文件名的文件中
     writeFileSync(getRootPath(`${OUTPUT_DIR}/${configFileName}`), configStr);
 
     console.log(colors.cyan(`✨ [${pkg.name}]`) + ` - configuration file is build successfully:`);
@@ -41,7 +47,10 @@ function createConfig(params: CreateConfigParams) {
 }
 
 export function runBuildConfig() {
+  // 获取我们可以配置的环境变量对象
   const config = getEnvConfig();
+  // 获取配置文件的JS名
   const configFileName = getConfigFileName(config);
+  // 创建文件
   createConfig({ config, configName: configFileName, configFileName: GLOB_CONFIG_FILE_NAME });
 }

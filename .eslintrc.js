@@ -30,16 +30,12 @@ module.exports = {
     ecmaVersion: 2020,
     //  设置为 'script' (默认) 或 'module'（如果你的代码是 ECMAScript 模块)
     sourceType: 'module',
-    jsxPragma: 'React',
-    ecmaFeatures: {
-      jsx: true,
-    },
   },
   extends: [
     // 最基本配置
     'plugin:vue/vue3-essential',
-    // eslint官方推荐使用,vue3的规则集是plugin:vue/vue3-recommended
-    'eslint:recommended',
+    // // eslint官方推荐使用,vue3的规则集是plugin:vue/vue3-recommended
+    'eslint:recommended', // 代码快速修复可以选择引入第三方库
     '@vue/typescript/recommended',
     // @vue/eslint-config-prettier插件
     '@vue/prettier',
@@ -48,6 +44,10 @@ module.exports = {
   rules: {
     // 去除v-html被eslint所警告
     'vue/no-v-html': 'off',
+    // 去除JSX等类型被eslint所警告
+    'no-undef': 'off',
+    // 允许在 case 子句中使用词法声明
+    'no-case-declarations': 'off',
     // 不检查默认属性
     'vue/require-default-prop': 'off',
     // 关闭没有声明emits
@@ -102,5 +102,7 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    // 禁止不必要的转义字符
+    'no-useless-escape': 0,
   },
 };

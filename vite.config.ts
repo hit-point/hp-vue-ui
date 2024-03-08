@@ -9,6 +9,7 @@ import { createProxy } from './build/vite/proxy';
 import { wrapperEnv } from './build/utils';
 import { createVitePlugins } from './build/vite/plugins';
 import { OUTPUT_DIR } from './build/constant';
+import { generateModifyVars } from './build/generate/generateModifyVars';
 
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
@@ -36,6 +37,11 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     root,
     resolve: {
       alias: [
+        // 避免vue-i18n警告
+        {
+          find: 'vue-i18n',
+          replacement: 'vue-i18n/dist/vue-i18n.cjs.js',
+        },
         // /@/xxxx => src/xxxx
         {
           find: /\/@\//,
@@ -61,6 +67,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       drop: VITE_DROP_CONSOLE ? ['console', 'debugger'] : [],
     },
     build: {
+      sourcemap: true,
       // 兼容原生ESM的浏览器
       target: 'es2015',
       // 兼容移动端css样式
@@ -72,25 +79,33 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       // 消除打包大小超过500kb警告
       chunkSizeWarningLimit: 4000,
       rollupOptions: {
-        output: {
-          // 最小化拆分包
-          manualChunks: (id) => {
-            if (id.includes('node_modules')) {
-              return id.toString().split('node_modules/')[1].split('/')[0].toString();
-            }
-          },
-          // 用于从入口点创建的块的打包输出格式[name]表示文件名,[hash]表示该文件内容hash值
-          entryFileNames: `${OUTPUT_DIR}/js/[name].[hash].js`,
-          // 用于命名代码拆分时创建的共享块的输出命名
-          chunkFileNames: `${OUTPUT_DIR}/js/[name].[hash].js`,
-          // 用于输出静态资源的命名，[ext]表示文件扩展名
-          assetFileNames: `${OUTPUT_DIR}/[ext]/[name].[hash].[ext]`,
-        },
+        // 这一部分等后续nginx熟练了再启用
+        // output: {
+        //   // 最小化拆分包
+        //   manualChunks: (id) => {
+        //     if (id.includes('node_modules')) {
+        //       return id.toString().split('node_modules/')[1].split('/')[0].toString();
+        //     }
+        //   },
+        //   // 用于从入口点创建的块的打包输出格式[name]表示文件名,[hash]表示该文件内容hash值
+        //   entryFileNames: `${OUTPUT_DIR}/js/[name].[hash].js`,
+        //   // 用于命名代码拆分时创建的共享块的输出命名
+        //   chunkFileNames: `${OUTPUT_DIR}/js/[name].[hash].js`,
+        //   // 用于输出静态资源的命名，[ext]表示文件扩展名
+        //   assetFileNames: `${OUTPUT_DIR}/[ext]/[name].[hash].[ext]`,
+        // },
       },
     },
     define: {
       // 定义全局变量替换方式
       __APP_INFO__: JSON.stringify(__APP_INFO__),
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: generateModifyVars(),
+        },
+      },
     },
     // 插件
     plugins: createVitePlugins(viteEnv, isBuild),

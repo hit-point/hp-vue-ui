@@ -1,0 +1,25 @@
+{
+  "Vue-tsx快速生成模板": {
+    "prefix": "Vue-tsx",
+    "body": [
+      "<script lang='tsx'>",
+      "\timport { defineComponent } from 'vue';",
+      "\texport default defineComponent({",
+      "\t\tname: 'BasicTemplate',",
+      "\t\tprops: {",
+      "\t\t\tdemo: {",
+      "\t\t\t\ttype: String,",
+      "\t\t\t\tdefault: '',",
+      "\t\t\t},",
+      "\t\t},",
+      "\t\tsetup() {",
+      "\t\t\treturn () => <div>BasicTemplate</div>;",
+      "\t\t},",
+      "\t});",
+      "</script>\n",
+      "<style lang='scss'></style>",
+      "$2"
+    ],
+    "description": "Vue3.2+"
+  }
+}

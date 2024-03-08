@@ -7,13 +7,12 @@
     "bradlc.vscode-tailwindcss",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "mrmlnc.vscode-less",
     "lokalise.i18n-ally",
     "redhat.vscode-yaml",
     "csstools.postcss",
     "mikestead.dotenv",
     "eamodio.gitlens",
-    "antfu.iconify",
+    "rvest.vs-code-prettier-eslint",
     "Vue.volar"
   ]
 }

@@ -7,17 +7,26 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    DemoComponent: typeof import('./src/components/DemoComponent.vue')['default'];
+    AppProvide: typeof import('./src/components/psc-application/src/AppProvide.vue')['default'];
+    AppProvider: typeof import('./src/components/psc-application/src/AppProvider.vue')['default'];
+    ElAside: typeof import('element-plus/es')['ElAside'];
+    ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb'];
+    ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem'];
     ElButton: typeof import('element-plus/es')['ElButton'];
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default'];
-    IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default'];
-    IconDocumentation: typeof import('./src/components/icons/IconDocumentation.vue')['default'];
-    IconEcosystem: typeof import('./src/components/icons/IconEcosystem.vue')['default'];
-    IconSupport: typeof import('./src/components/icons/IconSupport.vue')['default'];
-    IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default'];
+    ElCard: typeof import('element-plus/es')['ElCard'];
+    ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider'];
+    ElContainer: typeof import('element-plus/es')['ElContainer'];
+    ElHeader: typeof import('element-plus/es')['ElHeader'];
+    ElIcon: typeof import('element-plus/es')['ElIcon'];
+    ElMain: typeof import('element-plus/es')['ElMain'];
+    ElMenu: typeof import('element-plus/es')['ElMenu'];
+    ElMenuItem: typeof import('element-plus/es')['ElMenuItem'];
+    ElMenuItemGroup: typeof import('element-plus/es')['ElMenuItemGroup'];
+    ElPagination: typeof import('element-plus/es')['ElPagination'];
+    ElScrollbar: typeof import('element-plus/es')['ElScrollbar'];
+    ElSubMenu: typeof import('element-plus/es')['ElSubMenu'];
+    ElTable: typeof import('element-plus/es')['ElTable'];
     RouterLink: typeof import('vue-router')['RouterLink'];
     RouterView: typeof import('vue-router')['RouterView'];
-    TheWelcome: typeof import('./src/components/TheWelcome.vue')['default'];
-    WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default'];
   }
 }

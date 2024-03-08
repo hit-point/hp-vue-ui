@@ -1,0 +1,6 @@
+// scss写法参考
+// https://blog.51cto.com/knifeedge/5458222
+
+@use './public' as *;
+@use './eleplus/index' as *;
+@use './transition/fade.scss' as *;

@@ -1,18 +1,33 @@
 {
   "plugins": {
     "@release-it/conventional-changelog": {
-      "preset": "angular",
+      "preset": {
+        "name": "conventionalcommits",
+        "header": "# Changelog",
+        "types": [
+          { "type": "feat", "section": "Features" },
+          { "type": "fix", "section": "Bug Fixes" },
+          { "type": "chore", "hidden": true },
+          { "type": "docs", "hidden": true },
+          { "type": "style", "hidden": true },
+          { "type": "refactor", "hidden": true },
+          { "type": "perf", "hidden": true },
+          { "type": "test", "hidden": true }
+        ]
+      },
       "infile": "CHANGELOG.md"
     }
   },
   "git": {
-    "commitMessage": "chore: Release v${version}"
+    "commitMessage": "chore: release v${version}",
+    "commit": true,
+    "push": true
   },
   "github": {
     "release": true,
     "draft": false
   },
   "npm": {
-    "publish": true
+    "publish": false
   }
 }

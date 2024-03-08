@@ -1,39 +1,30 @@
-<script lang="ts" setup>
-  import Demo from '/@/views/Demo.vue';
-</script>
+<script lang="tsx">
+  import { defineComponent, computed, unref } from 'vue';
+  import zhCn from 'element-plus/dist/locale/zh-cn.mjs';
+  import en from 'element-plus/dist/locale/en.mjs';
+  import { AppProvider } from '/@/components/psc-application';
+  import { useLocale } from '/@/locales/useLocale';
+  import { RouterView } from 'vue-router';
+  import { LOCALE } from '/@/settings/localeSetting';
+  import 'dayjs/locale/zh-cn';
 
-<template>
-  <ul class="space-y-4">
-    <li>
-      <div class="w-64 h-3 bg-gradient-to-br from-fuchsia-500 to-purple-600" />
-    </li>
-    <li>
-      <div class="w-56 h-3 bg-gradient-to-br from-fuchsia-500 to-purple-600" />
-    </li>
-    <li>
-      <div class="w-48 h-3 bg-gradient-to-br from-fuchsia-500 to-purple-600" />
-    </li>
-    <li>
-      <div class="w-40 h-3 bg-gradient-to-br from-fuchsia-500 to-purple-600" />
-    </li>
-    <li>
-      <div class="w-32 h-3 bg-gradient-to-br from-fuchsia-500 to-purple-600" />
-    </li>
-    <li>
-      <div class="w-24 h-3 bg-gradient-to-br from-fuchsia-500 to-purple-600" />
-    </li>
-    <li>
-      <div class="w-20 h-3 bg-gradient-to-br from-fuchsia-500 to-purple-600" />
-    </li>
-    <li>
-      <div class="w-16 h-3 bg-gradient-to-br from-fuchsia-500 to-purple-600" />
-    </li>
-    <li>
-      <div class="w-12 h-3 bg-gradient-to-br from-fuchsia-500 to-purple-600" />
-    </li>
-    <li>
-      <div class="w-10 h-3 bg-gradient-to-br from-fuchsia-500 to-purple-600" />
-    </li>
-  </ul>
-  <Demo />
-</template>
+  export default defineComponent({
+    name: 'app',
+    components: {
+      AppProvider,
+    },
+    setup() {
+      const { getLocale } = useLocale();
+
+      const locale = computed(() => (unref(getLocale) === LOCALE.ZH_CN ? zhCn : en));
+
+      return () => (
+        <el-config-provider locale={unref(locale)}>
+          <AppProvider>
+            <RouterView />
+          </AppProvider>
+        </el-config-provider>
+      );
+    },
+  });
+</script>

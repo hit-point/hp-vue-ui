@@ -13,7 +13,6 @@ declare interface ViteEnv {
   VITE_BUILD_COMPRESS: 'gzip' | 'brotli' | 'none';
   VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE: boolean;
   VITE_LEGACY: boolean;
-  VITE_USE_IMAGEMIN: boolean;
   VITE_GENERATE_UI: string;
 }
 
@@ -28,6 +27,15 @@ declare global {
     lastBuildTime: string;
   };
 }
+
+declare type Nullable<T> = T | null;
+
+declare type DeepPartial<T> = {
+  [P in keyof T]?: DeepPartial<T[P]>;
+};
+
+declare type TimeoutHandle = ReturnType<typeof setTimeout>;
+declare type IntervalHandle = ReturnType<typeof setInterval>;
 
 declare module '*.vue' {
   import { ComponentOptions } from 'vue';

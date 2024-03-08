@@ -25,9 +25,11 @@ export function createProxy(list: ProxyList = []) {
       changeOrigin: true,
       ws: true,
       rewrite: (path) => path.replace(new RegExp(`^${prefix}`), ''),
-      // https is require secure=false
+      // https 模式需要 secure=false
       ...(isHttps ? { secure: false } : {}),
     };
   }
+
+  // 编译时会根据VITE_PROXY生成proxy对象
   return ret;
 }

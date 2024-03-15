@@ -49,6 +49,9 @@ devDependencies:
   '@iconify/vue':
     specifier: ^4.1.1
     version: 4.1.1(vue@3.2.47)
+  '@plugin-web-update-notification/vite':
+    specifier: ^1.7.1
+    version: 1.7.1(vite@4.1.4)
   '@release-it/conventional-changelog':
     specifier: ^5.1.1
     version: 5.1.1(release-it@15.11.0)
@@ -2698,6 +2701,19 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@plugin-web-update-notification/core@1.7.1:
+    resolution: {integrity: sha512-G5xbuFE4B3TGxM9FxYwUlbGleuWNUzdbw3ZNcht1WDn85Qbhgzk7lQwuXVilxZII6LhsghJ4Zdapw0jgzuCJQw==}
+    dev: true
+
+  /@plugin-web-update-notification/vite@1.7.1(vite@4.1.4):
+    resolution: {integrity: sha512-qIP2JBt19gZGWjagZOGc0qatoLGa2h4GnrHjF1ETzVgHUuJMgBeZpqMjzO81MwbmOUQdWbvwlF3ZZhXopeXB/w==}
+    peerDependencies:
+      vite: ^5.0.0 || >4.0.0 || ^3.0.0
+    dependencies:
+      '@plugin-web-update-notification/core': 1.7.1
+      vite: 4.1.4(@types/node@18.14.2)(sass@1.63.3)(terser@5.16.8)
+    dev: true
 
   /@pnpm/config.env-replace@1.1.0:
     resolution: {integrity: sha512-htyl8TWnKL7K/ESFa1oW2UB5lVDxuF5DpM7tBi6Hu2LNL3mWkIzNLG6N4zoCUP1lCKNxWy/3iu8mS8MvToGd6w==}

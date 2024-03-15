@@ -2,6 +2,7 @@ import { PluginOption } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import legacy from '@vitejs/plugin-legacy';
+import { webUpdateNotice } from '@plugin-web-update-notification/vite';
 
 import { configCompressPlugin } from './compress';
 import { configHtmlPlugin } from './html';
@@ -21,6 +22,18 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean, lastBuildT
     vue(),
     vueJsx(),
     uploadVersion({ version: lastBuildTime }),
+    // 打包部署后提醒插件
+    webUpdateNotice({
+      logVersion: true,
+      // 取消默认通知栏，监听更新事件自定义
+      // hiddenDefaultNotification: true
+    }),
+    // 在其他文件中监听自定义更新事件
+    // document.body.addEventListener('plugin_web_update_notice', (e) => {
+    //   const { version, options } = e.detail;
+    //   // write some code, show your custom notification and etc.
+    //   alert('System update!');
+    // }),
   ];
 
   // 兼容低版本浏览器

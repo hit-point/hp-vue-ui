@@ -1,23 +1,17 @@
-## Project Setup
+<h1>pasco-admin</h1>
 
-```sh
+## 简介
+
+开发中
+
+## 安装依赖
+
 pnpm install
-```
 
-### Compile and Hot-Reload for Development
+## 项目启动
 
-```sh
 pnpm dev
-```
 
-### Type-Check, Compile and Minify for Production
+## 项目打包
 
-```sh
 pnpm build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-pnpm lint
-```

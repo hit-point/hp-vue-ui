@@ -36,3 +36,13 @@ export interface GetUserInfoModel {
   // 介绍
   desc?: string;
 }
+
+/**
+ * @description: 获取用户登录验证码
+ */
+export interface GetUserAuthCaptcha {
+  // 登录接口所需验证码key
+  captchaKey: string;
+  // 验证码图片base64
+  captchaBase64: string;
+}

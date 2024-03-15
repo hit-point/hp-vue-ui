@@ -54,7 +54,7 @@ export default [
       let menu: Object[];
       switch (id) {
         case '1':
-          menu = [homeRoute, demoRoute];
+          menu = [demoRoute];
           break;
         case '2':
           menu = [homeRoute, demoRoute];

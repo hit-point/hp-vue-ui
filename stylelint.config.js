@@ -14,7 +14,7 @@ module.exports = {
   // 自定义规则
   rules: {
     // 指定不允许使用的单位列表
-    'unit-disallowed-list': ['rem', 'pt'],
+    'unit-disallowed-list': ['pt'],
     // 指定缩进
     indentation: 2,
     // 不允许空源
@@ -81,5 +81,7 @@ module.exports = {
         ignoreAtRules: ['tailwind', 'mixin', 'use'],
       },
     ],
+    // 指定媒体功能范围的上下文或前缀表示法
+    'media-feature-range-notation': null,
   },
 };

@@ -10,9 +10,9 @@
       const { prefixCls } = useDesign('layout-content');
 
       return () => (
-        <div class={prefixCls}>
+        <el-scrollbar class={prefixCls} height={'100%'}>
           <PageLayout />
-        </div>
+        </el-scrollbar>
       );
     },
   });

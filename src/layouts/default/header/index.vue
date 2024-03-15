@@ -3,10 +3,12 @@
   import { computed } from 'vue';
   import { useDesign } from '/@/hooks/web/useDesign';
   import LayoutBreadCrumb from './LayoutBreadCrumb.vue';
+  import MultipleTabs from './MultipleTabs.vue';
   export default defineComponent({
     name: 'LayoutHeader',
     components: {
       LayoutBreadCrumb,
+      MultipleTabs,
     },
     setup() {
       const { prefixCls } = useDesign('layout-header');
@@ -16,11 +18,10 @@
       });
 
       return () => (
-        <el-header class={getHeaderClass}>
-          <el-card>
-            <LayoutBreadCrumb />
-          </el-card>
-        </el-header>
+        <div class={getHeaderClass}>
+          <LayoutBreadCrumb />
+          <MultipleTabs />
+        </div>
       );
     },
   });
@@ -30,6 +31,11 @@
   $prefix-cls: '#{$namespace}-layout-header';
 
   .#{$prefix-cls} {
-    padding: 0;
+    &__header {
+      position: fixed;
+      top: 0;
+      z-index: 505;
+      width: 100%;
+    }
   }
 </style>

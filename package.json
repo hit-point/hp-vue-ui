@@ -1,6 +1,6 @@
 {
-  "name": "vue-admin",
-  "version": "0.0.0",
+  "name": "pasco-admin",
+  "version": "1.0.0",
   "private": true,
   "author": {
     "name": "pasco152",
@@ -29,6 +29,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@vueuse/motion": "^2.1.0",
     "axios": "^1.4.0",
     "element-plus": "^2.3.4",
     "mockjs": "^1.1.0",

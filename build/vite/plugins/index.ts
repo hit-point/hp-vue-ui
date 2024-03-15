@@ -7,8 +7,9 @@ import { configCompressPlugin } from './compress';
 import { configHtmlPlugin } from './html';
 import { configVisualizerConfig } from './visualizer';
 import { configMockPlugin } from './mock';
+import uploadVersion from './uploadVersion';
 
-export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
+export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean, lastBuildTime: number) {
   const {
     VITE_LEGACY,
     VITE_BUILD_COMPRESS,
@@ -16,7 +17,11 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     VITE_USE_MOCK,
   } = viteEnv;
 
-  const vitePlugins: (PluginOption | PluginOption[])[] = [vue(), vueJsx()];
+  const vitePlugins: (PluginOption | PluginOption[])[] = [
+    vue(),
+    vueJsx(),
+    uploadVersion({ version: lastBuildTime }),
+  ];
 
   // 兼容低版本浏览器
   VITE_LEGACY && isBuild && vitePlugins.push(legacy());

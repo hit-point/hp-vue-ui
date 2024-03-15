@@ -23,13 +23,17 @@
           background: unref(getMenuBgColor),
           maxWidth: unref(getWidth),
           minWidth: unref(getWidth),
+          transition: 'all 0.2s ease 0s',
         };
       });
 
       return () => (
-        <el-aside class={unref(getSiderClass)} width={unref(getWidth)} style={unref(getSiderSty)}>
-          <AsideMenu />
-        </el-aside>
+        <>
+          <div style={unref(getSiderSty)} />
+          <el-aside class={unref(getSiderClass)} width={unref(getWidth)} style={unref(getSiderSty)}>
+            <AsideMenu />
+          </el-aside>
+        </>
       );
     },
   });
@@ -39,6 +43,10 @@
   $prefix-cls: '#{$namespace}-layout-sider';
 
   .#{$prefix-cls} {
-    transition: all 0.3s;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 510;
   }
 </style>

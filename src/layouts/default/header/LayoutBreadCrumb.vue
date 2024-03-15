@@ -1,5 +1,5 @@
 <script lang="tsx">
-  import { defineComponent, ref, unref, watchEffect } from 'vue';
+  import { defineComponent, h, ref, unref, watchEffect } from 'vue';
   import { useI18n } from '/@/hooks/web/useI18n';
   import { RouteLocationMatched, useRouter } from 'vue-router';
   import { REDIRECT_NAME } from '/@/router/constant';
@@ -8,9 +8,12 @@
   import { Menu } from '/@/router/types';
   import { utilsfilter } from '/@/utils/helper/treeHelper';
   import { useMenuSetting } from '/@/hooks/setting/useMenuSetting';
-  import { useUserStore } from '/@/stores/modules/user';
+  import { useUserStore, useUserStoreWithOut } from '/@/stores/modules/user';
   import { LocaleType } from '/#/config';
   import { useLocale } from '/@/locales/useLocale';
+  import { useRenderIcon } from '/@/components/psc-icon/src/hooks';
+  import Expand from '@iconify-icons/ep/expand';
+  import Fold from '@iconify-icons/ep/fold';
 
   export default defineComponent({
     name: 'LayoutBreadCrumb',
@@ -20,6 +23,7 @@
       const { t } = useI18n();
       const { currentRoute } = useRouter();
       const userStore = useUserStore();
+      const { getUserInfo } = useUserStoreWithOut();
 
       const { toggleCollapsed, getCollapsed } = useMenuSetting();
 
@@ -106,16 +110,88 @@
       }
 
       return () => (
-        <el-breadcrumb separator="/">
-          <el-button onClick={toggleCollapsed}>
-            {unref(getCollapsed) ? <span>展开</span> : <span>收起</span>}
-          </el-button>
-          <el-button onClick={goLogin}>登出</el-button>
-          <el-button onClick={() => toggleLocale('zh_CN')}>切换中文</el-button>
-          <el-button onClick={() => toggleLocale('en')}>切换英文</el-button>
-          {renderItem()}
-        </el-breadcrumb>
+        <div class={'layout-bread__header'}>
+          <div class={'layout-bread__left'}>
+            <el-icon class={'layout-bread__icon'} onClick={toggleCollapsed}>
+              {unref(getCollapsed) ? (
+                <>{h(useRenderIcon(Expand))}</>
+              ) : (
+                <>{h(useRenderIcon(Fold))}</>
+              )}
+            </el-icon>
+            <el-breadcrumb separator="/">{renderItem()}</el-breadcrumb>
+          </div>
+          <div class={'layout-bread__action'}>
+            <el-dropdown
+              v-slots={{
+                dropdown: () => (
+                  <el-dropdown-menu>
+                    <el-dropdown-item onClick={() => toggleLocale('zh_CN')}>
+                      切换中文
+                    </el-dropdown-item>
+                    <el-dropdown-item onClick={() => toggleLocale('en')}>切换英文</el-dropdown-item>
+                    <el-dropdown-item onClick={goLogin}>登出</el-dropdown-item>
+                  </el-dropdown-menu>
+                ),
+              }}
+            >
+              <div class={' layout-header-user__dropdown hover:bg-slate-100'}>
+                <el-avatar
+                  class={'mr-2'}
+                  shape={'circle'}
+                  size={30}
+                  fit={'cover'}
+                  src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
+                />
+                <el-text>{getUserInfo.username}</el-text>
+              </div>
+            </el-dropdown>
+          </div>
+        </div>
       );
     },
   });
 </script>
+
+<style lang="scss" scoped>
+  .layout-bread__header {
+    display: flex;
+    padding: 0 8px;
+    height: 48px;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    justify-content: space-between;
+  }
+
+  .layout-bread__icon {
+    display: flex;
+    height: 100%;
+    padding: 1px 10px 0;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  .layout-bread__left {
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+
+  .layout-bread__action {
+    display: flex;
+    min-width: 180px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .layout-header-user__dropdown {
+    display: flex;
+    height: 48px;
+    padding: 0 0 0 10px;
+    padding-right: 10px;
+    overflow: hidden;
+    font-size: 12px;
+    cursor: pointer;
+    align-items: center;
+  }
+</style>

@@ -18,7 +18,7 @@ const localCompontents: AppRouteModule = {
     {
       path: 'dialog',
       name: 'Dialog',
-      component: () => import('/@/views/demo/Dialog.vue'),
+      component: () => import('/@/views/dialog/index.vue'),
       meta: {
         title: t('menus.component.dialog'),
         icon: 'ep:box',

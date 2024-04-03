@@ -4,4 +4,5 @@ export default {
     title: '组件',
     dialog: '弹框组件',
   },
+  errorLog: '错误页',
 };

@@ -23,6 +23,10 @@ export function useMenuSetting() {
 
   const getMenuBgColor = computed(() => appStore.getMenuSetting.bgColor);
 
+  const getMenuTextColor = computed(() => appStore.getMenuSetting.textColor);
+
+  const getMenuActiveTextColor = computed(() => appStore.getMenuSetting.activeTextColor);
+
   const getMenuTrigger = computed(() => appStore.getMenuSetting.menuTrigger);
 
   const getUniqueOpened = computed(() => appStore.getMenuSetting.uniqueOpened);
@@ -54,6 +58,8 @@ export function useMenuSetting() {
     getIsHorizontal,
     getUniqueOpened,
     getMenuBgColor,
+    getMenuTextColor,
+    getMenuActiveTextColor,
     getMenuTrigger,
     mixSideHasChildren,
   };

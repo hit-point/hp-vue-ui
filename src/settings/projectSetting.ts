@@ -45,6 +45,10 @@ const setting: ProjectConfig = {
   menuSetting: {
     // 侧边栏菜单bg颜色
     bgColor: SIDE_BAR_BG_COLOR_LIST[0],
+    // 侧边栏菜单text颜色
+    textColor: SIDE_BAR_BG_COLOR_LIST[4],
+    // 侧边栏菜单激活text颜色
+    activeTextColor: SIDE_BAR_BG_COLOR_LIST[1],
     // 菜单折叠
     collapsed: false,
     // 菜单宽度
@@ -59,6 +63,21 @@ const setting: ProjectConfig = {
     uniqueOpened: true,
     // 模块打开方法 ‘click’ |'hover'
     menuTrigger: MenuTriggerEnum.CLICK,
+  },
+
+  // 多选项卡
+  multiTabsSetting: {
+    cache: false,
+    // Turn on
+    show: true,
+    // Is it possible to drag and drop sorting tabs
+    canDrag: true,
+    // Turn on quick actions
+    showQuick: true,
+    // Whether to show the refresh button
+    showRedo: true,
+    // Whether to show the collapse button
+    showFold: true,
   },
 
   // 过渡设置

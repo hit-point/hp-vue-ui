@@ -2,22 +2,22 @@ import { resultSuccess, resultError, getRequestToken, requestParams, baseUrl } f
 import { MockMethod } from 'vite-plugin-mock';
 import { createFakeUserList } from './user';
 
-const demoRoute = {
+const componentsRoute = {
   path: '/components',
   name: 'Components',
   component: 'LAYOUT',
   meta: {
-    icon: 'carbon:column-dependency',
+    icon: 'majesticons:qr-code-line',
     title: 'menus.component.title',
   },
   children: [
     {
       path: 'dialog',
       name: 'Dialog',
-      component: '/demo/Dialog.vue',
+      component: '/dialog/index.vue',
       meta: {
         title: 'menus.component.dialog',
-        icon: 'ep:box',
+        icon: 'majesticons:browser',
         currentActive: '/components/dialog',
       },
     },
@@ -32,6 +32,18 @@ const homeRoute = {
     title: 'menus.home',
     icon: 'carbon:home',
     currentActive: '/home',
+    hideMenu: false,
+  },
+};
+
+const exceptionRoute = {
+  path: 'error-log',
+  name: 'ErrorLog',
+  component: '/sys/error-log/index.vue',
+  meta: {
+    title: 'menus.errorLog',
+    icon: 'majesticons:alert-circle',
+    currentActive: '/error-log',
     hideMenu: false,
   },
 };
@@ -54,10 +66,10 @@ export default [
       let menu: Object[];
       switch (id) {
         case '1':
-          menu = [demoRoute];
+          menu = [componentsRoute, exceptionRoute];
           break;
         case '2':
-          menu = [homeRoute, demoRoute];
+          menu = [homeRoute, componentsRoute];
           break;
         default:
           menu = [];

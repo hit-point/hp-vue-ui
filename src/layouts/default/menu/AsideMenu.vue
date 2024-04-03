@@ -12,7 +12,14 @@
     setup() {
       const go = useGo();
       const { prefixCls } = useDesign('layout-menu');
-      const { getUniqueOpened, getMenuMode, getCollapsed, getMenuBgColor } = useMenuSetting();
+      const {
+        getUniqueOpened,
+        getMenuMode,
+        getCollapsed,
+        getMenuBgColor,
+        getMenuTextColor,
+        getMenuActiveTextColor,
+      } = useMenuSetting();
       const { menusRef } = useSplitMenu();
       const getCommonProps = computed(() => {
         const menus = unref(menusRef);
@@ -22,7 +29,8 @@
           mode: unref(getMenuMode),
           collapse: unref(getCollapsed),
           backgroundColor: unref(getMenuBgColor),
-          textColor: '#fff',
+          textColor: unref(getMenuTextColor),
+          activeTextColor: unref(getMenuActiveTextColor),
           onSelect: handleMenuClick,
         };
       });
@@ -65,7 +73,7 @@
       align-items: center;
       cursor: pointer;
       transition: all 0.2s ease;
-      height: 48px;
+      height: 28px;
       padding: 10px 4px 10px 16px;
 
       img {

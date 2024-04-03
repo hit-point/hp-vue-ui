@@ -34,13 +34,13 @@ export const ERROR_LOG_ROUTE: AppRouteRecordRaw = {
   name: 'ErrorLog',
   component: LAYOUT,
   meta: {
-    hideBreadcrumb: true,
+    currentActive: '/error-log',
     hideChildrenInMenu: true,
   },
   children: [
     {
-      path: 'list',
-      name: 'ErrorLogList',
+      path: '',
+      name: 'ErrorLog',
       component: () => import('/@/views/sys/error-log/index.vue'),
       meta: {},
     },

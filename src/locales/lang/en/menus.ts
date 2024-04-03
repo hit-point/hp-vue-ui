@@ -4,4 +4,5 @@ export default {
     title: 'Component',
     dialog: 'Dialog',
   },
+  errorLog: 'ErrorLog',
 };

@@ -14,7 +14,7 @@ const componentsRoute = {
     {
       path: 'dialog',
       name: 'Dialog',
-      component: '/dialog/index.vue',
+      component: '/components/dialog/index.vue',
       meta: {
         title: 'menus.component.dialog',
         icon: 'majesticons:browser',
@@ -66,10 +66,10 @@ export default [
       let menu: Object[];
       switch (id) {
         case '1':
-          menu = [componentsRoute, exceptionRoute];
+          menu = [homeRoute, componentsRoute, exceptionRoute];
           break;
         case '2':
-          menu = [homeRoute, componentsRoute];
+          menu = [homeRoute, componentsRoute, exceptionRoute];
           break;
         default:
           menu = [];

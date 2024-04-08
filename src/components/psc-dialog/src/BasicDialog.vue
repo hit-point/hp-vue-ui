@@ -15,6 +15,7 @@
   import { DialogAction, DialogProp } from './typing';
   import { deepMerge } from '/@/utils';
   import { getSlot } from '/@/utils/helper/tsxHelper';
+  import { JSX } from 'vue/jsx-runtime';
   export default defineComponent({
     name: 'BasicDialog',
     props: dialogProp,

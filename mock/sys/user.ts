@@ -12,7 +12,7 @@ export function createFakeUserList() {
       password: '123456',
       token: 'fakeToken1',
       // homePath不填或者填'/'会引起路由死循环
-      homePath: '/components/dialog',
+      homePath: '/home',
       roles: [
         {
           roleName: 'Super Admin',
@@ -48,7 +48,7 @@ const captchaData = {
 const fakeCodeList: any = {
   '1': ['super', 'test'],
 
-  '2': ['super'],
+  '2': ['test'],
 };
 export default [
   // mock user login

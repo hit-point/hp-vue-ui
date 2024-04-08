@@ -1,4 +1,4 @@
-export interface SiderListType {
+export interface TabListType {
   id: number;
   name: string;
   createBy: string;
@@ -9,9 +9,9 @@ export interface TabsListType {
   name: string;
 }
 
-export interface SiderListPropsType {
+export interface TabListPropsType {
   // 列表数据
-  siderList: SiderListType[];
+  tabList: TabListType[];
   // 标签页数据
   tabsList: TabsListType[];
   // 标签激活项
@@ -34,10 +34,10 @@ export interface SiderListPropsType {
   isDisable: boolean;
 }
 
-export interface SiderListActionType {
-  setProps: (prop: Partial<SiderListPropsType>) => void;
+export interface TabListActionType {
+  setProps: (prop: Partial<TabListPropsType>) => void;
 }
 
-export type RegisterFn = (instance: SiderListActionType) => void;
+export type RegisterFn = (instance: TabListActionType) => void;
 
-export type UseSiderListReturnType = [RegisterFn, SiderListActionType];
+export type UseTabListReturnType = [RegisterFn, TabListActionType];

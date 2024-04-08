@@ -23,7 +23,6 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean, lastBuildT
   const vitePlugins: (PluginOption | PluginOption[])[] = [
     vue(),
     vueJsx(),
-    // uploadVersion({ version: lastBuildTime }),
     // 打包部署后提醒插件
     webUpdateNotice({
       logVersion: true,
@@ -55,6 +54,8 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean, lastBuildT
     vitePlugins.push(
       configCompressPlugin(VITE_BUILD_COMPRESS, VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE),
     );
+    // 在public生成version文件
+    // vitePlugins.push(uploadVersion({ version: lastBuildTime }));
   }
 
   return vitePlugins;

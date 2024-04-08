@@ -1,28 +1,28 @@
 <script lang="tsx">
   import { computed, defineComponent, h, onMounted, ref, unref, watch } from 'vue';
-  import { siderListProps } from './props';
-  import { SiderListActionType, SiderListPropsType, TabsListType } from './typing';
+  import { tabListProps } from './props';
+  import { TabListActionType, TabListPropsType, TabsListType } from './typing';
   import { deepMerge } from '/@/utils';
   import Search from '@iconify-icons/ep/search';
   import { useRenderIcon } from '/@/components/psc-icon/src/hooks';
   import { BasicTxt } from '/@/components/psc-readonly';
   export default defineComponent({
-    name: 'BasicSiderList',
-    props: siderListProps,
+    name: 'BasicTabList',
+    props: tabListProps,
     emits: ['register', 'tabChange'],
     setup(props, { emit }) {
-      const propsRef = ref<Partial<SiderListPropsType>>();
+      const propsRef = ref<Partial<TabListPropsType>>();
       const activeNameRef = ref('');
       const searchInput = ref('');
       const getProps = computed(() => {
         return { ...props, ...unref(propsRef) };
       });
 
-      const setProps = (props: Partial<SiderListPropsType>) => {
+      const setProps = (props: Partial<TabListPropsType>) => {
         propsRef.value = deepMerge(unref(propsRef) || {}, props);
       };
 
-      const siderListAction: SiderListActionType = {
+      const tabListAction: TabListActionType = {
         setProps,
       };
 
@@ -34,7 +34,7 @@
       );
 
       onMounted(() => {
-        emit('register', siderListAction);
+        emit('register', tabListAction);
       });
 
       const renderLabel = (x: TabsListType) => {
@@ -42,12 +42,12 @@
       };
 
       const renderDefault = computed(() => {
-        const { siderList, loading, total, isShowBomBtn, bomBtnTxt } = unref(getProps);
+        const { tabList, loading, total, isShowBomBtn, bomBtnTxt } = unref(getProps);
         return (
           <div v-psc-loading={loading} style={{ minHeight: '350px' }}>
             <el-input v-model={searchInput.value} prefixIcon={h(useRenderIcon(Search))} clearable />
             <ul>
-              {siderList.map((x) => (
+              {tabList.map((x) => (
                 <li key={x.id} class={'tab-panel-content__li'}>
                   <BasicTxt>
                     {x.name}-{x.id}

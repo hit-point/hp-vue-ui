@@ -2,7 +2,7 @@ import { resultSuccess, resultError, getRequestToken, requestParams, baseUrl } f
 import { MockMethod } from 'vite-plugin-mock';
 import { createFakeUserList } from './user';
 
-const siderInfo = {
+const tablistInfo = {
   content: [
     {
       id: 1,
@@ -42,7 +42,7 @@ const siderInfo = {
 
 export default [
   {
-    url: `${baseUrl}/getSiderInfo`,
+    url: `${baseUrl}/getTabListInfo`,
     timeout: 1000,
     method: 'get',
     response: (request: requestParams) => {
@@ -58,10 +58,10 @@ export default [
       let menu: Object;
       switch (id) {
         case '1':
-          menu = siderInfo;
+          menu = tablistInfo;
           break;
         case '2':
-          menu = siderInfo;
+          menu = tablistInfo;
           break;
         default:
           menu = {};

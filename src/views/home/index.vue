@@ -9,8 +9,8 @@
   import RepeatDirective from '/@/directives/repeatClick';
   import ClickOutsideDirective from '/@/directives/clickOutside';
   import { BasicReadonly } from '/@/components/psc-readonly';
-  import { BasicSiderList, useSiderList } from '/@/components/psc-sider-list';
-  import { getSiderInfo } from '/@/api/sider';
+  import { BasicTabList, useTabList } from '/@/components/psc-tab-list';
+  import { getTabListInfo } from '/@/api/tabList';
 
   export default defineComponent({
     name: 'Home',
@@ -71,7 +71,7 @@
           },
         ],
       };
-      const siderProps = {
+      const tabProps = {
         tabsList: [
           {
             label: '我的',
@@ -90,17 +90,17 @@
         bomBtnTxt: '新建xxx',
       };
 
-      const [SiderRegister, { setProps: setSiderProps }] = useSiderList(siderProps);
+      const [TabRegister, { setProps: setTabProps }] = useTabList(tabProps);
 
-      const getSiderList = async () => {
-        setSiderProps({
-          siderList: [],
+      const getTabList = async () => {
+        setTabProps({
+          tabList: [],
           loading: true,
           isDisable: true,
         });
-        const res = await getSiderInfo();
-        setSiderProps({
-          siderList: res.content,
+        const res = await getTabListInfo();
+        setTabProps({
+          tabList: res.content,
           total: res.total,
           loading: false,
           isDisable: false,
@@ -140,7 +140,7 @@
       }
 
       onMounted(() => {
-        getSiderList();
+        getTabList();
       });
 
       return () => (
@@ -149,7 +149,7 @@
           <BasicButton {...unref(btnProps)}>点击按钮加载样式</BasicButton>
           <BasicButton v-auth={RoleEnum.SUPER}>v-auth自定义指令-拥有super角色权限可见</BasicButton>
           <BasicButton v-repeat-click={login}>v-repeat-click自定义指令-重复点击</BasicButton>
-          <BasicSiderList onRegister={SiderRegister} />
+          <BasicTabList onRegister={TabRegister} />
           <div class={'demo-box'} v-ripple>
             v-ripple自定义指令-水波纹
           </div>

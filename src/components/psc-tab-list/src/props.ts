@@ -1,10 +1,10 @@
 import { PropType } from 'vue';
-import { SiderListType, TabsListType } from './typing';
+import { TabListType, TabsListType } from './typing';
 
-export const siderListProps = {
+export const tabListProps = {
   // 列表数据
-  siderList: {
-    type: Array as PropType<SiderListType[]>,
+  tabList: {
+    type: Array as PropType<TabListType[]>,
     default: () => [],
   },
   // 标签数据

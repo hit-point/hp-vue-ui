@@ -1,6 +1,6 @@
 import { AppRouteModule, AppRouteRecordRaw } from '/@/router/types';
 import { t } from '/@/hooks/web/useI18n';
-import { ERROR_LOG_ROUTE, PAGE_NOT_FOUND_ROUTE } from '/@/router/routes/basic';
+import { PAGE_NOT_FOUND_ROUTE } from '/@/router/routes/basic';
 import { PageEnum } from '/@/enums/pageEnum';
 
 const modules = import.meta.glob('./modules/**/*.ts', { import: 'default', eager: true });
@@ -34,4 +34,4 @@ export const LoginRoute: AppRouteRecordRaw = {
 export const asyncRoutes = [PAGE_NOT_FOUND_ROUTE, ...routeModuleList];
 
 // 未经许可的基本路由
-export const basicRoutes = [LoginRoute, RootRoute, PAGE_NOT_FOUND_ROUTE, ERROR_LOG_ROUTE];
+export const basicRoutes = [LoginRoute, RootRoute, PAGE_NOT_FOUND_ROUTE];

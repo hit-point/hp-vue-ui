@@ -34,6 +34,7 @@ export const ERROR_LOG_ROUTE: AppRouteRecordRaw = {
   name: 'ErrorLog',
   component: LAYOUT,
   meta: {
+    title: 'menus.errorLog',
     currentActive: '/error-log',
     hideChildrenInMenu: true,
   },

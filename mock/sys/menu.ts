@@ -37,9 +37,9 @@ const homeRoute = {
 };
 
 const exceptionRoute = {
-  path: 'error-log',
+  path: '/error-log',
   name: 'ErrorLog',
-  component: '/sys/error-log/index.vue',
+  component: 'LAYOUT',
   meta: {
     title: 'menus.errorLog',
     icon: 'majesticons:alert-circle',

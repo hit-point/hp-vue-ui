@@ -1,7 +1,7 @@
 <script lang="tsx">
   import { computed, defineComponent, h, onMounted, ref, unref, watch } from 'vue';
   import { tabListProps } from './props';
-  import { TabListActionType, TabListPropsType, TabsListType } from './typing';
+  import { TabListActionType, TabListPropsType, TabsListType } from './types';
   import { deepMerge } from '/@/utils';
   import Search from '@iconify-icons/ep/search';
   import { useRenderIcon } from '/@/components/psc-icon/src/hooks';
@@ -44,7 +44,7 @@
       const renderDefault = computed(() => {
         const { tabList, loading, total, isShowBomBtn, bomBtnTxt } = unref(getProps);
         return (
-          <div v-psc-loading={loading} style={{ minHeight: '350px' }}>
+          <div v-psc-loading={loading} style={{ minHeight: '350px', textAlign: 'center' }}>
             <el-input v-model={searchInput.value} prefixIcon={h(useRenderIcon(Search))} clearable />
             <ul>
               {tabList.map((x) => (
@@ -72,7 +72,11 @@
       const render = () => {
         const { tabsList, isDisable } = unref(getProps);
         return (
-          <el-tabs v-model={activeNameRef.value} onTabChange={(name) => emit('tabChange', name)}>
+          <el-tabs
+            v-model={activeNameRef.value}
+            onTabChange={(name) => emit('tabChange', name)}
+            stretch
+          >
             {tabsList.map((x) => (
               <el-tab-pane
                 key={x.name}

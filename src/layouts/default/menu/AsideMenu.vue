@@ -46,7 +46,7 @@
       }
 
       return () => (
-        <>
+        <el-scrollbar width={'100%'}>
           <div class={`${prefixCls}-logo`}>
             <img src="/resource/img/logo.svg" />
             {!unref(getCollapsed) ? (
@@ -58,7 +58,7 @@
             ) : null}
           </div>
           {renderItem()}
-        </>
+        </el-scrollbar>
       );
     },
   });

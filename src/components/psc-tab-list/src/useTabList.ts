@@ -1,5 +1,5 @@
 import { nextTick, onUnmounted, ref, unref, watch } from 'vue';
-import { TabListActionType, TabListPropsType, UseTabListReturnType } from './typing';
+import { TabListActionType, TabListPropsType, UseTabListReturnType } from './types';
 import { DynamicProps } from '/#/index';
 import { isProdMode } from '/@/utils/env';
 import { getDynamicProps } from '/@/utils/props';

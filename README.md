@@ -1,8 +1,8 @@
-<h1>pasco-admin</h1>
+## 项目简介
 
-## 简介
+pasco-admin 1.0 版本目前开发中
 
-开发中
+- 技术栈采用 Vue3+Vite4+Element-Plus+TypeScript。
 
 ## 安装依赖
 
@@ -15,3 +15,7 @@ pnpm dev
 ## 项目打包
 
 pnpm build
+
+## 提交代码
+
+pnpm commit

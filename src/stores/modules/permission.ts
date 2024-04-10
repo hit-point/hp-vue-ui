@@ -13,7 +13,7 @@ import projectSetting from '/@/settings/projectSetting';
 import { PermissionModeEnum } from '/@/enums/appEnum';
 
 import { asyncRoutes } from '/@/router/routes';
-import { ERROR_LOG_ROUTE, PAGE_NOT_FOUND_ROUTE } from '/@/router/routes/basic';
+import { PAGE_NOT_FOUND_ROUTE } from '/@/router/routes/basic';
 
 import { utilsfilter } from '/@/utils/helper/treeHelper';
 
@@ -220,8 +220,6 @@ export const usePermissionStore = defineStore({
           routes = [PAGE_NOT_FOUND_ROUTE, ...routeList];
           break;
       }
-
-      routes.push(ERROR_LOG_ROUTE);
       patchHomeAffix(routes);
       console.log(routes);
 

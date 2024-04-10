@@ -60,14 +60,14 @@ export const useMultipleTabStore = defineStore({
   },
   actions: {
     /**
-     * Update the cache according to the currently opened tabs
+     * 根据当前打开的选项卡更新缓存
      */
     async updateCacheTab() {
       const cacheMap: Set<string> = new Set();
 
       for (const tab of this.tabList) {
         const item = getRawRoute(tab);
-        // Ignore the cache
+        // 忽略缓存
         const needCache = !item.meta?.ignoreKeepAlive;
         if (!needCache) {
           continue;
@@ -78,9 +78,6 @@ export const useMultipleTabStore = defineStore({
       this.cacheTabList = cacheMap;
     },
 
-    /**
-     * Refresh tabs
-     */
     async refreshPage(router: Router) {
       const { currentRoute } = router;
       const route = unref(currentRoute);
@@ -114,7 +111,7 @@ export const useMultipleTabStore = defineStore({
           toPath = p;
         }
       }
-      // Jump to the current page and report an error
+      // 跳转到当前页面并报告错误
       path !== toPath && go(toPath as PageEnum, true);
     },
 
@@ -215,7 +212,6 @@ export const useMultipleTabStore = defineStore({
       await replace(toTarget);
     },
 
-    // Close according to key
     async closeTabByKey(key: string, router: Router) {
       const index = this.tabList.findIndex((item) => (item.fullPath || item.path) === key);
       if (index !== -1) {
@@ -244,7 +240,6 @@ export const useMultipleTabStore = defineStore({
       }
     },
 
-    // Sort the tabs
     async sortTabs(oldIndex: number, newIndex: number) {
       const currentTab = this.tabList[oldIndex];
       this.tabList.splice(oldIndex, 1);
@@ -252,7 +247,6 @@ export const useMultipleTabStore = defineStore({
       this.lastDragEndIndex = this.lastDragEndIndex + 1;
     },
 
-    // Close the tab on the right and jump
     async closeLeftTabs(route: RouteLocationNormalized, router: Router) {
       const index = this.tabList.findIndex((item) => item.path === route.path);
 
@@ -271,7 +265,6 @@ export const useMultipleTabStore = defineStore({
       handleGotoPage(router);
     },
 
-    // Close the tab on the left and jump
     async closeRightTabs(route: RouteLocationNormalized, router: Router) {
       const index = this.tabList.findIndex((item) => item.fullPath === route.fullPath);
 
@@ -297,9 +290,6 @@ export const useMultipleTabStore = defineStore({
       this.goToPage(router);
     },
 
-    /**
-     * Close other tabs
-     */
     async closeOtherTabs(route: RouteLocationNormalized, router: Router) {
       const closePathList = this.tabList.map((item) => item.fullPath);
 

@@ -27,23 +27,3 @@ export const PAGE_NOT_FOUND_ROUTE: AppRouteRecordRaw = {
     },
   ],
 };
-
-// 错误页面
-export const ERROR_LOG_ROUTE: AppRouteRecordRaw = {
-  path: '/error-log',
-  name: 'ErrorLog',
-  component: LAYOUT,
-  meta: {
-    title: 'menus.errorLog',
-    currentActive: '/error-log',
-    hideChildrenInMenu: true,
-  },
-  children: [
-    {
-      path: '',
-      name: 'ErrorLog',
-      component: () => import('/@/views/sys/error-log/index.vue'),
-      meta: {},
-    },
-  ],
-};

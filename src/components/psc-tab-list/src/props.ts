@@ -1,5 +1,5 @@
 import { PropType } from 'vue';
-import { TabListType, TabsListType } from './typing';
+import { TabListType, TabsListType } from './types';
 
 export const tabListProps = {
   // 列表数据

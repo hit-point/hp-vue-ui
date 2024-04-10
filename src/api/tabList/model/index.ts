@@ -1,4 +1,4 @@
-import { TabListListType } from '/@/components/psc-Tab-list/src/typing';
+import { TabListListType } from '../../../components/psc-tab-list/src/types';
 
 /**
  * @description: 侧边栏列表组件返回值

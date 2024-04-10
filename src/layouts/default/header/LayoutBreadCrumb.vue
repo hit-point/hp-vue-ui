@@ -130,6 +130,16 @@
                       切换中文
                     </el-dropdown-item>
                     <el-dropdown-item onClick={() => toggleLocale('en')}>切换英文</el-dropdown-item>
+                  </el-dropdown-menu>
+                ),
+              }}
+            >
+              {h(useRenderIcon('ion:language'))}
+            </el-dropdown>
+            <el-dropdown
+              v-slots={{
+                dropdown: () => (
+                  <el-dropdown-menu>
                     <el-dropdown-item onClick={goLogin}>登出</el-dropdown-item>
                   </el-dropdown-menu>
                 ),

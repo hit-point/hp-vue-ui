@@ -10,9 +10,7 @@ import { configVisualizerConfig } from './visualizer';
 import { configMockPlugin } from './mock';
 // import uploadVersion from './uploadVersion';
 
-export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean, lastBuildTime: number) {
-  console.log(lastBuildTime);
-
+export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   const {
     VITE_LEGACY,
     VITE_BUILD_COMPRESS,

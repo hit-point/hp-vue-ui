@@ -1,13 +1,11 @@
 <template>
   <div class="layout-multiple__tabs">
-    <el-tabs v-model="activeKeyRef" type="card">
-      <el-tab-pane
-        :name="item.query ? item.fullPath : item.path"
-        v-for="item in getTabsState"
-        :key="item.query ? item.fullPath : item.path"
-      >
+    <el-tabs v-model="activeKeyRef" type="card" @tab-change="handleChange">
+      <el-tab-pane :name="getPath(item)" v-for="item in getTabsState" :key="getPath(item)">
         <template #label>
-          <span>{{ getTitle(item) }}</span>
+          <div class="scroll-item">
+            <span class="tag-title">{{ getTitle(item) }}</span>
+          </div>
         </template>
       </el-tab-pane>
     </el-tabs>
@@ -22,6 +20,7 @@
   import { useUserStore } from '/@/stores/modules/user';
   import { useMultipleTabStore } from '/@/stores/modules/multipleTab';
   import { useI18n } from '/@/hooks/web/useI18n';
+  import { useGo } from '/@/hooks/web/usePage';
 
   const userStore = useUserStore();
   const tabStore = useMultipleTabStore();
@@ -29,6 +28,7 @@
   const activeKeyRef = ref('');
 
   const { t } = useI18n();
+  const go = useGo();
 
   listenerRouteChange((route) => {
     if (!route || !userStore.getToken) {
@@ -50,8 +50,6 @@
     } else {
       tabStore.addTab(unref(route));
     }
-
-    console.log('选项卡数据', tabStore.getTabList);
   });
 
   const getTabsState = computed(() => {
@@ -61,14 +59,51 @@
   function getTitle(item: RouteLocationNormalized) {
     return item.meta && t(item.meta.title as string);
   }
+
+  function getPath(item: RouteLocationNormalized) {
+    return item.query ? item.fullPath : item.path;
+  }
+
+  function handleChange(activeKey: any) {
+    activeKeyRef.value = activeKey;
+    go(activeKey, false);
+  }
 </script>
 
 <style lang="scss" scoped>
   .layout-multiple__tabs {
-    height: 40px;
-    line-height: 40px;
     background-color: #fff;
     border-bottom: 1px solid #d9d9d9;
     box-shadow: 0 4px 4px rgb(0 21 41 / 8%);
+  }
+
+  .is-active {
+    position: relative;
+    color: #fff;
+    box-shadow: 0 0 0.7px #888;
+
+    .scroll-item {
+      transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+      .tag-title {
+        color: var(--el-color-primary) !important;
+      }
+    }
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  .tag-title {
+    padding: 0 4px;
+    color: var(--el-text-color-primary);
+    text-decoration: none;
+  }
+
+  .schedule-active {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--el-color-primary);
   }
 </style>

@@ -62,10 +62,10 @@
     "vue",
     "sass"
   ],
-  "path-intellisense.mappings": {
-    "/@/": "${workspaceRoot}/src",
-    "/#/": "${workspaceRoot}/types",
-  },
+  // "path-intellisense.mappings": {
+  //   "/@/": "${workspaceRoot}/src",
+  //   "/#/": "${workspaceRoot}/types",
+  // },
   "[vue]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit",

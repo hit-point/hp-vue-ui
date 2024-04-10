@@ -13,7 +13,7 @@
       const getIcon = computed(() => props.menuItem?.icon);
 
       function renderDefaultIconComp() {
-        return <el-icon></el-icon>;
+        return <></>;
       }
 
       function renderGetIconComp() {

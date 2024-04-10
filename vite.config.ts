@@ -128,7 +128,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       },
     },
     // 插件
-    plugins: createVitePlugins(viteEnv, isBuild, __APP_INFO__.lastBuildTime),
+    plugins: createVitePlugins(viteEnv, isBuild),
     // 依赖预构建配置项
     optimizeDeps: {
       include,

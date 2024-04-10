@@ -1,8 +1,17 @@
 export default {
   home: 'Home',
   component: {
-    title: 'Component',
+    title: 'Module',
     dialog: 'Dialog',
+    readonly: 'Readonly',
+    permission: 'Permission',
+    backBtn: 'BackBtn',
+    button: 'Button',
   },
-  errorLog: 'ErrorLog',
+  directives: {
+    title: 'Directives',
+    repeat: 'Repeat',
+    ripple: 'Ripple',
+  },
+  locales: 'Locales',
 };

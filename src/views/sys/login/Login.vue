@@ -19,9 +19,9 @@
         captcha: '',
       });
 
-      const { pkg } = __APP_INFO__;
+      // const { pkg } = __APP_INFO__;
 
-      const { version } = pkg;
+      // const { version } = pkg;
 
       const loginRules = computed(() => {
         return {
@@ -99,7 +99,7 @@
           <div class="login-box">
             <Motion class="login-form">
               <el-card style={{ borderRadius: '4%' }}>
-                <h2>Pasco Admin {version}</h2>
+                <h2>Pasco Admin</h2>
                 <el-form ref={loginFormRef} model={loginData} rules={loginRules}>
                   <el-form-item prop={'username'}>
                     <div class="w-full">

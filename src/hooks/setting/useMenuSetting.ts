@@ -27,6 +27,8 @@ export function useMenuSetting() {
 
   const getMenuActiveTextColor = computed(() => appStore.getMenuSetting.activeTextColor);
 
+  const getMenuChildrenBgColor = computed(() => appStore.getMenuSetting.childrenBgColor);
+
   const getMenuTrigger = computed(() => appStore.getMenuSetting.menuTrigger);
 
   const getUniqueOpened = computed(() => appStore.getMenuSetting.uniqueOpened);
@@ -60,6 +62,7 @@ export function useMenuSetting() {
     getMenuBgColor,
     getMenuTextColor,
     getMenuActiveTextColor,
+    getMenuChildrenBgColor,
     getMenuTrigger,
     mixSideHasChildren,
   };

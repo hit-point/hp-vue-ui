@@ -6,6 +6,7 @@ export default {
     readonly: '只读组件',
     permission: '权限管理',
     button: '按钮组件',
+    outside: '点内外部触发不同事件组件',
   },
   permission: {
     backBtn: '按钮权限',
@@ -14,6 +15,7 @@ export default {
     title: '自定义指令',
     repeat: '防止重复点击',
     ripple: '水波纹',
+    outside: '点内外部触发不同事件',
   },
   locales: '国际化',
 };

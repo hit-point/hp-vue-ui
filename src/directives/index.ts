@@ -6,6 +6,7 @@ import { setupPermissionDirective } from './permission';
 import { setupLoadingDirective } from './loading';
 import { setupRepeatDirective } from './repeatClick';
 import { setupRippleDirective } from './ripple';
+import { setupClickOutsideDirective } from './clickOutside';
 
 export function setupGlobDirectives(app: App) {
   // 权限
@@ -16,4 +17,6 @@ export function setupGlobDirectives(app: App) {
   setupRepeatDirective(app);
   // 水波纹
   setupRippleDirective(app);
+  // 点内外部触发不同事件
+  setupClickOutsideDirective(app);
 }

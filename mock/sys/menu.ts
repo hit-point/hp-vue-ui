@@ -91,6 +91,15 @@ const componentsRoute = {
         currentActive: '/components/button',
       },
     },
+    {
+      path: 'outsidecomp',
+      name: 'OutsideComp',
+      component: '/components/outside/index.vue',
+      meta: {
+        title: 'menus.component.outside',
+        currentActive: '/components/outsidecomp',
+      },
+    },
   ],
 };
 
@@ -120,6 +129,15 @@ const directivesRoute = {
       meta: {
         title: 'menus.directives.ripple',
         currentActive: '/directives/ripple',
+      },
+    },
+    {
+      path: 'outside',
+      name: 'Outside',
+      component: '/directives/outside/index.vue',
+      meta: {
+        title: 'menus.directives.outside',
+        currentActive: '/directives/outside',
       },
     },
   ],

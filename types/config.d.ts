@@ -14,6 +14,7 @@ export interface MenuSetting {
   bgColor: string;
   textColor: string;
   activeTextColor: string;
+  childrenBgColor: string;
   collapsed: boolean;
   menuWidth: number;
   mode: MenuModeEnum;

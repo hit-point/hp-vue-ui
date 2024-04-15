@@ -48,7 +48,9 @@ const setting: ProjectConfig = {
     // 侧边栏菜单text颜色
     textColor: SIDE_BAR_BG_COLOR_LIST[4],
     // 侧边栏菜单激活text颜色
-    activeTextColor: SIDE_BAR_BG_COLOR_LIST[1],
+    activeTextColor: SIDE_BAR_BG_COLOR_LIST[5],
+    // 侧边栏菜单子项背景颜色
+    childrenBgColor: SIDE_BAR_BG_COLOR_LIST[12],
     // 菜单折叠
     collapsed: false,
     // 菜单宽度

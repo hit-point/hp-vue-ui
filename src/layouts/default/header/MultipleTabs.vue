@@ -5,6 +5,7 @@
         <template #label>
           <div class="scroll-item">
             <span class="tag-title">{{ getTitle(item) }}</span>
+            <span class="schedule-active" />
           </div>
         </template>
       </el-tab-pane>
@@ -98,7 +99,7 @@
     text-decoration: none;
   }
 
-  .schedule-active {
+  .is-active .schedule-active {
     position: absolute;
     bottom: 0;
     left: 0;

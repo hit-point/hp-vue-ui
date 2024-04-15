@@ -146,13 +146,9 @@
               }}
             >
               <div class={' layout-header-user__dropdown hover:bg-slate-100'}>
-                <el-avatar
-                  class={'mr-2'}
-                  shape={'circle'}
-                  size={30}
-                  fit={'cover'}
-                  src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
-                />
+                <el-avatar class={'mr-2'} shape={'circle'} size={30} fit={'cover'}>
+                  user
+                </el-avatar>
                 <el-text>{getUserInfo.username}</el-text>
               </div>
             </el-dropdown>

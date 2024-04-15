@@ -7,11 +7,13 @@ export default {
     permission: 'Permission',
     backBtn: 'BackBtn',
     button: 'Button',
+    outside: 'Outside',
   },
   directives: {
     title: 'Directives',
     repeat: 'Repeat',
     ripple: 'Ripple',
+    outside: 'Outside',
   },
   locales: 'Locales',
 };

@@ -1,7 +1,6 @@
 <script lang="tsx">
   import { defineComponent, ref, unref } from 'vue';
   import { ClickOutSide } from '/@/components/psc-clickoutside';
-  import ClickOutsideDirective from '/@/directives/clickOutside';
   // import { BasicTabList, useTabList } from '/@/components/psc-tab-list';
   // import { getTabListInfo } from '/@/api/tabList';
 
@@ -10,13 +9,8 @@
     components: {
       ClickOutSide,
     },
-    directives: {
-      ClickOutside: ClickOutsideDirective,
-    },
     setup() {
       const loadingV = ref(false);
-      const textV = ref('ClickV');
-      const textC = ref('ClickC');
 
       // const tabProps = {
       //   tabsList: [
@@ -54,37 +48,12 @@
       //   });
       // };
 
-      function handleClickOutsideV() {
-        textV.value = 'ClickV Out Side';
-      }
-
-      function innerClickV() {
-        textV.value = 'ClickV Inner';
-      }
-      function handleClickOutsideC() {
-        textC.value = 'ClickC Out Side';
-      }
-
-      function innerClickC() {
-        textC.value = 'ClickC Inner';
-      }
-
       // onMounted(() => {
       //   getTabList();
       // });
 
       return () => (
         <el-card>
-          <div v-click-outside={handleClickOutsideV}>
-            <div class={'demo-box'} onClick={innerClickV}>
-              v-click-outside自定义指令-点内外部触发不同事件{unref(textV)}
-            </div>
-          </div>
-          <ClickOutSide onClickOutside={handleClickOutsideC}>
-            <div class={'demo-box'} onClick={innerClickC}>
-              ClickOutSide组件-点内外部触发不同事件{unref(textC)}
-            </div>
-          </ClickOutSide>
           <div
             class={'demo-box'}
             v-psc-loading={unref(loadingV)}

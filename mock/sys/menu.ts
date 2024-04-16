@@ -84,7 +84,7 @@ const componentsRoute = {
     },
     {
       path: 'button',
-      name: 'Button',
+      name: 'ButtonComp',
       component: '/components/button/index.vue',
       meta: {
         title: 'menus.component.button',
@@ -92,12 +92,12 @@ const componentsRoute = {
       },
     },
     {
-      path: 'outsidecomp',
+      path: 'outside',
       name: 'OutsideComp',
       component: '/components/outside/index.vue',
       meta: {
         title: 'menus.component.outside',
-        currentActive: '/components/outsidecomp',
+        currentActive: '/components/outside',
       },
     },
   ],
@@ -150,16 +150,74 @@ const backRoute = {
   component: 'LAYOUT',
   meta: {
     icon: 'carbon:user-role',
-    title: 'menus.component.permission',
+    title: 'menus.permission.title',
   },
   children: [
     {
-      path: 'btn',
-      name: 'Btn',
-      component: '/permission/Btn',
+      path: 'page',
+      name: 'Page',
+      component: '/permission/page/index.vue',
+      meta: {
+        title: 'menus.permission.backPage',
+        currentActive: '/permission/page',
+      },
+    },
+    {
+      path: 'button',
+      name: 'Button',
+      component: '/permission/button/index.vue',
       meta: {
         title: 'menus.permission.backBtn',
-        currentActive: '/permission/btn',
+        currentActive: '/permission/button',
+      },
+    },
+  ],
+};
+
+// 系统管理
+const systemRoute = {
+  path: '/system',
+  name: 'System',
+  component: 'LAYOUT',
+  meta: {
+    icon: 'carbon:settings',
+    title: 'menus.system.title',
+  },
+  children: [
+    {
+      path: 'user',
+      name: 'User',
+      component: '/sys/user/index.vue',
+      meta: {
+        title: 'menus.system.user',
+        currentActive: '/system/user',
+      },
+    },
+    {
+      path: 'role',
+      name: 'Role',
+      component: '/sys/role/index.vue',
+      meta: {
+        title: 'menus.system.role',
+        currentActive: '/system/role',
+      },
+    },
+    {
+      path: 'menu',
+      name: 'Menu',
+      component: '/sys/menu/index.vue',
+      meta: {
+        title: 'menus.system.menu',
+        currentActive: '/system/menu',
+      },
+    },
+    {
+      path: 'dept',
+      name: 'Dept',
+      component: '/sys/dept/index.vue',
+      meta: {
+        title: 'menus.system.dept',
+        currentActive: '/system/dept',
       },
     },
   ],
@@ -183,10 +241,17 @@ export default [
       let menu: Object[];
       switch (id) {
         case '1':
-          menu = [homeRoute, localesRoute, backRoute, directivesRoute, componentsRoute];
+          menu = [
+            homeRoute,
+            localesRoute,
+            backRoute,
+            systemRoute,
+            directivesRoute,
+            componentsRoute,
+          ];
           break;
         case '2':
-          menu = [homeRoute, localesRoute, backRoute, directivesRoute, componentsRoute];
+          menu = [homeRoute, localesRoute, directivesRoute, componentsRoute];
           break;
         default:
           menu = [];

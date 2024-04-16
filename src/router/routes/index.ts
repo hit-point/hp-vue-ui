@@ -25,9 +25,9 @@ export const RootRoute: AppRouteRecordRaw = {
 export const LoginRoute: AppRouteRecordRaw = {
   path: '/login',
   name: 'Login',
-  component: () => import('/@/views/sys/login/Login.vue'),
+  component: () => import('/@/views/login/index.vue'),
   meta: {
-    title: t('routes.basic.login'),
+    title: t('登录页'),
   },
 };
 

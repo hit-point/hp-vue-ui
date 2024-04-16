@@ -1,15 +1,27 @@
-<script setup lang="ts">
+<script lang="tsx">
+  import { defineComponent } from 'vue';
   import MenuItemContent from './MenuItemContent.vue';
   import { itemProps } from '../props';
-
-  const props = defineProps(itemProps);
+  export default defineComponent({
+    name: 'BasicMenuItem',
+    props: itemProps,
+    setup(props) {
+      /**
+       *  style={{
+            margin: '4px 8px',
+            clear: 'both',
+            background: 'red',
+            borderRadius: '3px',
+          }}
+       */
+      return () => (
+        <el-menu-item index={props.menuItem.path}>
+          <MenuItemContent menuItem={props.menuItem} />
+        </el-menu-item>
+      );
+    },
+  });
 </script>
-
-<template>
-  <el-menu-item :index="props.menuItem.path">
-    <MenuItemContent :menuItem="props.menuItem" />
-  </el-menu-item>
-</template>
 
 <style lang="scss">
   .el-menu-item.is-active::before {

@@ -4,10 +4,20 @@ export default {
     title: 'Module',
     dialog: 'Dialog',
     readonly: 'Readonly',
-    permission: 'Permission',
-    backBtn: 'BackBtn',
     button: 'Button',
     outside: 'Outside',
+  },
+  permission: {
+    title: 'Permission',
+    backBtn: 'BackBtn',
+    backPage: 'BackPage',
+  },
+  system: {
+    title: 'System',
+    user: 'User',
+    role: 'Role',
+    dept: 'Dept',
+    menu: 'Menu',
   },
   directives: {
     title: 'Directives',

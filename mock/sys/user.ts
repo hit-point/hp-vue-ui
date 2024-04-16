@@ -18,6 +18,10 @@ export function createFakeUserList() {
           roleName: 'Super Admin',
           value: 'super',
         },
+        {
+          roleName: 'Tester',
+          value: 'test',
+        },
       ],
     },
     {

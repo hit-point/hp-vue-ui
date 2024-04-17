@@ -1,4 +1,5 @@
 import type { LocaleSetting, LocaleType } from '/#/config';
+import { Fn } from '/#/index';
 
 export interface DropMenu {
   onClick?: Fn;

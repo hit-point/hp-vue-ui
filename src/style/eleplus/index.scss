@@ -1,3 +1,11 @@
+.el-tabs {
+  --el-tabs-header-height: 32px;
+}
+
+.el-tabs__header {
+  margin: 0;
+}
+
 .el-header {
   padding: 0;
 }

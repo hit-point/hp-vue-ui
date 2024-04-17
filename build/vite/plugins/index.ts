@@ -2,11 +2,13 @@ import { PluginOption } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import legacy from '@vitejs/plugin-legacy';
+import { webUpdateNotice } from '@plugin-web-update-notification/vite';
 
 import { configCompressPlugin } from './compress';
 import { configHtmlPlugin } from './html';
 import { configVisualizerConfig } from './visualizer';
 import { configMockPlugin } from './mock';
+// import uploadVersion from './uploadVersion';
 
 export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   const {
@@ -16,7 +18,22 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     VITE_USE_MOCK,
   } = viteEnv;
 
-  const vitePlugins: (PluginOption | PluginOption[])[] = [vue(), vueJsx()];
+  const vitePlugins: (PluginOption | PluginOption[])[] = [
+    vue(),
+    vueJsx(),
+    // 打包部署后提醒插件
+    webUpdateNotice({
+      logVersion: true,
+      // 取消默认通知栏，监听更新事件自定义
+      // hiddenDefaultNotification: true
+    }),
+    // 在其他文件中监听自定义更新事件
+    // document.body.addEventListener('plugin_web_update_notice', (e) => {
+    //   const { version, options } = e.detail;
+    //   // write some code, show your custom notification and etc.
+    //   alert('System update!');
+    // }),
+  ];
 
   // 兼容低版本浏览器
   VITE_LEGACY && isBuild && vitePlugins.push(legacy());
@@ -35,6 +52,8 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     vitePlugins.push(
       configCompressPlugin(VITE_BUILD_COMPRESS, VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE),
     );
+    // 在public生成version文件
+    // vitePlugins.push(uploadVersion({ version: lastBuildTime }));
   }
 
   return vitePlugins;

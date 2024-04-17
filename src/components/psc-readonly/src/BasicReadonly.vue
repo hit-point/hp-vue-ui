@@ -39,7 +39,7 @@
           i !== valArr.length - 1 && (valStr += ',');
         }
         const val = isEmpty(keyToValList) ? readonlyValue : valStr;
-        return <TxtComp>{val}</TxtComp>;
+        return <TxtComp {...attrs}>{val}</TxtComp>;
       });
       const renderItem = computed(() => {
         const { keyToValList } = unref(getBindValues);

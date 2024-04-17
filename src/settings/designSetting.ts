@@ -32,6 +32,7 @@ export const HEADER_PRESET_BG_COLOR_LIST: string[] = [
 // sider preset color
 export const SIDE_BAR_BG_COLOR_LIST: string[] = [
   '#001529',
+  '#409eff',
   '#212121',
   '#273352',
   '#ffffff',
@@ -42,4 +43,5 @@ export const SIDE_BAR_BG_COLOR_LIST: string[] = [
   '#28333E',
   '#344058',
   '#383f45',
+  '#0f0303',
 ];

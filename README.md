@@ -1,23 +1,21 @@
-## Project Setup
+## 项目简介
 
-```sh
+pasco-admin 1.0 版本目前开发中
+
+- 技术栈采用 Vue3+Vite4+Element-Plus+TypeScript。
+
+## 安装依赖
+
 pnpm install
-```
 
-### Compile and Hot-Reload for Development
+## 项目启动
 
-```sh
 pnpm dev
-```
 
-### Type-Check, Compile and Minify for Production
+## 项目打包
 
-```sh
 pnpm build
-```
 
-### Lint with [ESLint](https://eslint.org/)
+## 提交代码
 
-```sh
-pnpm lint
-```
+pnpm commit

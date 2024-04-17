@@ -1,0 +1,28 @@
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: url('/src/assets/login-bg.jpg') no-repeat center right;
+}
+
+.login-box {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.login-form {
+  width: 360px;
+}
+
+@media screen and (max-width: 1180px) {
+  .login-form {
+    width: 290px;
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .login-box {
+    justify-content: center;
+  }
+}

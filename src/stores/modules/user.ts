@@ -6,8 +6,8 @@ import { RoleEnum } from '/@/enums/roleEnum';
 import { PageEnum } from '/@/enums/pageEnum';
 import { ROLES_KEY, TOKEN_KEY, USER_INFO_KEY } from '/@/enums/cacheEnum';
 import { getAuthCache, setAuthCache } from '/@/utils/auth';
-import { GetUserInfoModel, LoginParams } from '/@/api/sys/model/userModel';
-import { doLogout, getUserInfo, loginApi } from '/@/api/sys/user';
+import { GetUserAuthCaptcha, GetUserInfoModel, LoginParams } from '/@/api/sys/model/userModel';
+import { doLogout, getAuthCapcha, getUserInfo, loginApi } from '/@/api/sys/user';
 import { router } from '/@/router';
 import { usePermissionStore } from '/@/stores/modules/permission';
 import { RouteRecordRaw } from 'vue-router';
@@ -93,6 +93,17 @@ export const useUserStore = defineStore({
         // 保存token
         this.setToken(token);
         return this.afterLoginAction(goHome);
+      } catch (error) {
+        return Promise.reject(error);
+      }
+    },
+    /**
+     * @description: 获取验证码
+     */
+    async getCapchaAction(): Promise<GetUserAuthCaptcha | null> {
+      try {
+        const data = await getAuthCapcha();
+        return data;
       } catch (error) {
         return Promise.reject(error);
       }

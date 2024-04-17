@@ -12,6 +12,9 @@ export type LocaleType = 'zh_CN' | 'en' | 'ru' | 'ja' | 'ko';
 
 export interface MenuSetting {
   bgColor: string;
+  textColor: string;
+  activeTextColor: string;
+  childrenBgColor: string;
   collapsed: boolean;
   menuWidth: number;
   mode: MenuModeEnum;
@@ -70,6 +73,8 @@ export interface ProjectConfig {
   headerSetting: HeaderSetting;
   // menu配置
   menuSetting: MenuSetting;
+  // 多选项卡配置
+  multiTabsSetting: MultiTabsSetting;
   // 动画配置
   transitionSetting: TransitionSetting;
   // pageLayout是否启用keep-alive

@@ -4,6 +4,7 @@
   import BasicMenuItem from './BasicMenuItem.vue';
   import BasicSubMenuItem from './BasicSubMenuItem.vue';
   import MenuItemContent from './MenuItemContent.vue';
+  import { useMenuSetting } from '/@/hooks/setting/useMenuSetting';
   export default defineComponent({
     name: 'BasicSubMenuItem',
     props: {
@@ -13,6 +14,7 @@
       },
     },
     setup(props) {
+      const { getMenuChildrenBgColor } = useMenuSetting();
       const getShowMenu = computed(() => !props.menuItem.meta?.hideMenu);
       function renderTitleItem(item: MenuType) {
         return {
@@ -28,7 +30,10 @@
         return (
           <>
             {props.menuItem.children?.map((element: MenuType) => (
-              <BasicSubMenuItem menuItem={element} />
+              <BasicSubMenuItem
+                menuItem={element}
+                style={{ backgroundColor: unref(getMenuChildrenBgColor) }}
+              />
             ))}
           </>
         );

@@ -13,7 +13,7 @@ import projectSetting from '/@/settings/projectSetting';
 import { PermissionModeEnum } from '/@/enums/appEnum';
 
 import { asyncRoutes } from '/@/router/routes';
-import { ERROR_LOG_ROUTE, PAGE_NOT_FOUND_ROUTE } from '/@/router/routes/basic';
+import { PAGE_NOT_FOUND_ROUTE } from '/@/router/routes/basic';
 
 import { utilsfilter } from '/@/utils/helper/treeHelper';
 
@@ -158,21 +158,21 @@ export const usePermissionStore = defineStore({
       };
 
       switch (permissionMode) {
-        // 角色权限
-        case PermissionModeEnum.ROLE:
-          // 对非一级路由进行过滤
-          routes = utilsfilter(asyncRoutes, routeFilter);
-          // 对一级路由根据角色权限过滤
-          routes = routes.filter(routeFilter);
-          // 将多级路由转换为 2 级路由
-          routes = flatMultiLevelRoutes(routes);
-          break;
+        // // 角色权限
+        // case PermissionModeEnum.ROLE:
+        //   // 对非一级路由进行过滤
+        //   routes = utilsfilter(asyncRoutes, routeFilter);
+        //   // 对一级路由根据角色权限过滤
+        //   routes = routes.filter(routeFilter);
+        //   // 将多级路由转换为 2 级路由
+        //   routes = flatMultiLevelRoutes(routes);
+        //   break;
 
         // 路由映射
         case PermissionModeEnum.ROUTE_MAPPING:
           // 对非一级路由进行过滤
           routes = utilsfilter(asyncRoutes, routeFilter);
-          // 对一级路由再次根据角色权限过滤
+          // 对一级路由根据角色权限过滤
           routes = routes.filter(routeFilter);
           // 将路由转换成菜单
           const menuList = transformRouteToMenu(routes, true);
@@ -220,9 +220,9 @@ export const usePermissionStore = defineStore({
           routes = [PAGE_NOT_FOUND_ROUTE, ...routeList];
           break;
       }
-
-      routes.push(ERROR_LOG_ROUTE);
       patchHomeAffix(routes);
+      console.log(routes);
+
       return routes;
     },
   },

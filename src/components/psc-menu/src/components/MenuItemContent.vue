@@ -4,6 +4,8 @@
   import { useMenuIcon } from '../useDefaultOpeneds';
   import { isEmpty } from 'lodash-es';
   import { itemProps } from '../props';
+  import { BasicReadonly } from '/@/components/psc-readonly';
+  import { useMenuSetting } from '/@/hooks/setting/useMenuSetting';
   export default defineComponent({
     name: 'MenuItemComponent',
     props: itemProps,
@@ -11,13 +13,18 @@
       const { t } = useI18n();
       const { resolveDynamicComp } = useMenuIcon();
       const getIcon = computed(() => props.menuItem?.icon);
+      const { getMenuTextColor } = useMenuSetting();
 
       function renderDefaultIconComp() {
-        return <el-icon></el-icon>;
+        return <></>;
       }
 
       function renderGetIconComp() {
-        return <el-icon>{h(createVNode(resolveDynamicComp(props.menuItem)))}</el-icon>;
+        return (
+          <el-icon style={{ color: unref(getMenuTextColor) }}>
+            {h(createVNode(resolveDynamicComp(props.menuItem)))}
+          </el-icon>
+        );
       }
 
       function renderIconComp() {
@@ -25,7 +32,12 @@
       }
 
       function renderItemComp() {
-        return <span class={'ml-1'}>{t(props.menuItem.name)}</span>;
+        return (
+          <BasicReadonly
+            style={{ color: unref(getMenuTextColor), zIndex: 1 }}
+            readonlyValue={t(props.menuItem.name)}
+          />
+        );
       }
 
       function renderItem() {

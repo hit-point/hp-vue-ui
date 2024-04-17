@@ -12,12 +12,10 @@
 
       return () => (
         <el-container class={prefixCls}>
-          <el-container>
-            <SideBer />
-            <el-container class="is-vertical">
-              <Header />
-              <Content />
-            </el-container>
+          <SideBer />
+          <el-container class="is-vertical">
+            <Header />
+            <Content />
           </el-container>
         </el-container>
       );

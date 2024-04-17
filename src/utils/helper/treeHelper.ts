@@ -1,3 +1,5 @@
+import { Fn } from '/#/index';
+
 interface TreeHelperConfig {
   id: string;
   children: string;

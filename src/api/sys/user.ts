@@ -1,5 +1,10 @@
 import { defHttp } from '/@/utils/http';
-import { GetUserInfoModel, LoginParams, LoginResultModel } from './model/userModel';
+import {
+  GetUserAuthCaptcha,
+  GetUserInfoModel,
+  LoginParams,
+  LoginResultModel,
+} from './model/userModel';
 import { ErrorMessageMode } from '/#/axios';
 
 enum Api {
@@ -7,6 +12,7 @@ enum Api {
   Logout = '/logout',
   GetUserInfo = '/getUserInfo',
   GetPermCode = '/getPermCode',
+  GetCaptcha = '/captcha',
 }
 
 /**
@@ -29,6 +35,13 @@ export function loginApi(params: LoginParams, mode: ErrorMessageMode = 'message'
  */
 export function getUserInfo() {
   return defHttp.get<GetUserInfoModel>({ url: Api.GetUserInfo }, { errorMessageMode: 'message' });
+}
+
+/**
+ * @description: 用户登录验证码
+ */
+export function getAuthCapcha() {
+  return defHttp.get<GetUserAuthCaptcha>({ url: Api.GetCaptcha }, { errorMessageMode: 'message' });
 }
 
 /**

@@ -3,7 +3,7 @@ import { t } from '/@/hooks/web/useI18n';
 import { LAYOUT } from '/@/router/constant';
 
 // 一级路由示例
-const localDemo: AppRouteModule = {
+const homeDemo: AppRouteModule = {
   path: '/home',
   name: 'Home',
   component: LAYOUT,
@@ -27,4 +27,4 @@ const localDemo: AppRouteModule = {
   ],
 };
 
-export default localDemo;
+export default homeDemo;

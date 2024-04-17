@@ -1,6 +1,6 @@
 {
   "name": "pasco-admin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "author": {
     "name": "pasco152",
@@ -10,6 +10,7 @@
     "commit": "git add . && czg",
     "bootstrap": "pnpm install",
     "release": "release-it",
+    "changeset": "changeset",
     "changelog": "conventional-changelog -pangular -i CHANGELOG.md -s -r 0",
     "dev": "cross-env NODE_OPTIONS=--max-old-space-size=4096 vite --mode development",
     "dev:pro": "cross-env NODE_OPTIONS=--max-old-space-size=4096 vite --mode production",
@@ -26,9 +27,11 @@
     "lint:stylelint": "stylelint --fix \"**/*.{vue,css,scss,postcss,less}\" node_modules/.cache/stylelint/",
     "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
     "lint": "pnpm lint:eslint && pnpm lint:prettier && pnpm lint:stylelint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "version": "changeset version"
   },
   "dependencies": {
+    "@changesets/cli": "^2.27.1",
     "@vueuse/motion": "^2.1.0",
     "axios": "^1.4.0",
     "element-plus": "^2.3.4",

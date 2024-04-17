@@ -19,7 +19,7 @@ export interface KeyToValType extends Partial<FileListType> {
 }
 
 export interface ReadonlyProp {
-  readonlyValue: string | string[];
+  textVal: string | string[];
   keyToValList: Partial<KeyToValType>[];
   isFileDelete: boolean;
 }

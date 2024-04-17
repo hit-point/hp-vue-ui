@@ -11,9 +11,10 @@ import { CacheTypeEnum } from '/@/enums/cacheEnum';
 export type LocaleType = 'zh_CN' | 'en' | 'ru' | 'ja' | 'ko';
 
 export interface MenuSetting {
-  bgColor: string;
+  backgroundColor: string;
   textColor: string;
   activeTextColor: string;
+  activeBgColor: string;
   childrenBgColor: string;
   collapsed: boolean;
   menuWidth: number;
@@ -21,6 +22,7 @@ export interface MenuSetting {
   theme: ThemeEnum;
   trigger: TriggerEnum;
   uniqueOpened: boolean;
+  collapseTransition: boolean;
   menuTrigger: MenuTriggerEnum;
 }
 

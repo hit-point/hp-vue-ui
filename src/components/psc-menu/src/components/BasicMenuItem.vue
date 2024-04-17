@@ -1,36 +1,22 @@
-<script lang="tsx">
-  import { defineComponent } from 'vue';
+<script setup lang="ts">
   import MenuItemContent from './MenuItemContent.vue';
   import { itemProps } from '../props';
-  export default defineComponent({
-    name: 'BasicMenuItem',
-    props: itemProps,
-    setup(props) {
-      /**
-       *  style={{
-            margin: '4px 8px',
-            clear: 'both',
-            background: 'red',
-            borderRadius: '3px',
-          }}
-       */
-      return () => (
-        <el-menu-item index={props.menuItem.path}>
-          <MenuItemContent menuItem={props.menuItem} />
-        </el-menu-item>
-      );
-    },
-  });
+  import { useMenuSetting } from '/@/hooks/setting/useMenuSetting';
+  import { unref } from 'vue';
+
+  const props = defineProps(itemProps);
+
+  const { getMenuActiveBgColor } = useMenuSetting();
+
+  const activeBgColor = unref(getMenuActiveBgColor);
 </script>
 
+<template>
+  <el-menu-item :index="props.menuItem.path">
+    <MenuItemContent :menuItem="props.menuItem" />
+  </el-menu-item>
+</template>
+
 <style lang="scss">
-  .el-menu-item.is-active::before {
-    position: absolute;
-    inset: 0 8px;
-    margin: 4px 0;
-    clear: both;
-    content: '';
-    background: var(--el-color-primary) !important;
-    border-radius: 3px;
-  }
+  $active-bg-color: v-bind('activeBgColor');
 </style>

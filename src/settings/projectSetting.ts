@@ -44,25 +44,29 @@ const setting: ProjectConfig = {
   // 菜单配置
   menuSetting: {
     // 侧边栏菜单bg颜色
-    bgColor: SIDE_BAR_BG_COLOR_LIST[0],
+    backgroundColor: SIDE_BAR_BG_COLOR_LIST[0],
     // 侧边栏菜单text颜色
-    textColor: SIDE_BAR_BG_COLOR_LIST[4],
+    textColor: SIDE_BAR_BG_COLOR_LIST[1],
     // 侧边栏菜单激活text颜色
-    activeTextColor: SIDE_BAR_BG_COLOR_LIST[5],
+    activeTextColor: SIDE_BAR_BG_COLOR_LIST[1],
+    // 侧边栏菜单激活背景颜色
+    activeBgColor: SIDE_BAR_BG_COLOR_LIST[2],
     // 侧边栏菜单子项背景颜色
-    childrenBgColor: SIDE_BAR_BG_COLOR_LIST[12],
-    // 菜单折叠
+    childrenBgColor: SIDE_BAR_BG_COLOR_LIST[3],
+    // 菜单是否折叠
     collapsed: false,
-    // 菜单宽度
+    // 菜单宽度，单位：px
     menuWidth: 210,
     // 菜单模式
     mode: MenuModeEnum.VERTICAL,
+    // 打开手风琴模式，仅显示菜单
+    uniqueOpened: false,
+    // 是否打开菜单动画，建议关闭
+    collapseTransition: false,
     // 菜单主题
     theme: ThemeEnum.DARK,
     // 折叠触发器位置
     trigger: TriggerEnum.HEADER,
-    // 打开手风琴模式，仅显示菜单
-    uniqueOpened: true,
     // 模块打开方法 ‘click’ |'hover'
     menuTrigger: MenuTriggerEnum.CLICK,
   },

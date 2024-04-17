@@ -2,7 +2,7 @@
   import { BasicReadonly } from '/@/components/psc-readonly';
 
   const valProps = {
-    readonlyValue: 'lihu,wanghua',
+    textVal: 'lihu,wanghua',
     keyToValList: [
       {
         id: '1',

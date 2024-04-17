@@ -1,68 +1,71 @@
-<script lang="tsx">
-  import { computed, defineComponent, unref } from 'vue';
-  import { useSplitMenu } from './useLayoutMenu';
+<script setup lang="ts">
+  import { computed, unref } from 'vue';
+  import { useMenu } from './useLayoutMenu';
   import { BasicMenu } from '/@/components/psc-menu';
   import { useGo } from '/@/hooks/web/usePage';
   import { useMenuSetting } from '/@/hooks/setting/useMenuSetting';
   import { useDesign } from '/@/hooks/web/useDesign';
   import { BasicReadonly } from '/@/components/psc-readonly';
 
-  export default defineComponent({
-    name: 'LayoutAsideMenu',
-    setup() {
-      const go = useGo();
-      const { prefixCls } = useDesign('layout-menu');
-      const {
-        getUniqueOpened,
-        getMenuMode,
-        getCollapsed,
-        getMenuBgColor,
-        getMenuTextColor,
-        getMenuActiveTextColor,
-      } = useMenuSetting();
-      const { menusRef } = useSplitMenu();
-      const getCommonProps = computed(() => {
-        const menus = unref(menusRef);
-        return {
-          menus: menus,
-          uniqueOpened: unref(getUniqueOpened),
-          mode: unref(getMenuMode),
-          collapse: unref(getCollapsed),
-          backgroundColor: unref(getMenuBgColor),
-          textColor: unref(getMenuTextColor),
-          activeTextColor: unref(getMenuActiveTextColor),
-          onSelect: handleMenuClick,
-        };
-      });
+  // 路由跳转函数
+  const go = useGo();
 
-      function handleMenuClick(path: string) {
-        go(path);
-      }
+  // 模块样式前缀————pasco-layout-menu
+  const { prefixCls } = useDesign('layout-menu');
 
-      function renderItem() {
-        const { menus, ...menuProps } = unref(getCommonProps);
+  // 侧边栏配置
+  const {
+    getUniqueOpened,
+    getMenuMode,
+    getCollapsed,
+    getMenuBgColor,
+    getMenuTextColor,
+    getMenuActiveTextColor,
+    getMenuCollapseTransition,
+  } = useMenuSetting();
 
-        return <BasicMenu {...menuProps} menuItems={menus} />;
-      }
+  // 侧边栏数据
+  const { menusRef } = useMenu();
 
-      return () => (
-        <el-scrollbar width={'100%'}>
-          <div class={`${prefixCls}-logo`}>
-            <img src="/resource/img/logo.svg" />
-            {!unref(getCollapsed) ? (
-              <BasicReadonly
-                style={{ color: unref(getCommonProps).textColor }}
-                class={`${prefixCls}-title`}
-                readonlyValue={'Pasco Admin'}
-              />
-            ) : null}
-          </div>
-          {renderItem()}
-        </el-scrollbar>
-      );
-    },
+  // 侧边栏入参
+  const getMenuProps = computed(() => {
+    // 取出侧边栏数据
+    const menus = unref(menusRef);
+    // 参数注释见/@/settings/projectSetting.ts文件
+    // 如需添加删除参考https://element-plus.org/zh-CN/component/menu.html#menu-%E8%8F%9C%E5%8D%95
+    return {
+      menuItems: menus,
+      uniqueOpened: unref(getUniqueOpened),
+      mode: unref(getMenuMode),
+      collapse: unref(getCollapsed),
+      backgroundColor: unref(getMenuBgColor),
+      textColor: unref(getMenuTextColor),
+      activeTextColor: unref(getMenuActiveTextColor),
+      collapseTransition: unref(getMenuCollapseTransition),
+      onSelect: handleMenuClick,
+    };
   });
+
+  // 侧边栏点击事件
+  function handleMenuClick(path: string) {
+    go(path);
+  }
 </script>
+
+<template>
+  <el-scrollbar width="100%">
+    <div :class="`${prefixCls}-logo`">
+      <img src="/resource/img/logo.svg" />
+      <BasicReadonly
+        v-if="!getCollapsed"
+        :style="{ color: unref(getMenuProps).textColor }"
+        :class="`${prefixCls}-title`"
+        textVal="Pasco Admin"
+      />
+    </div>
+    <BasicMenu v-bind="getMenuProps" />
+  </el-scrollbar>
+</template>
 
 <style lang="scss">
   $prefix-cls: '#{$namespace}-layout-menu';
@@ -72,7 +75,6 @@
       display: flex;
       align-items: center;
       cursor: pointer;
-      transition: all 0.2s ease;
       height: 28px;
       padding: 10px 4px 10px 16px;
 
@@ -85,7 +87,6 @@
     &-title {
       font-size: 16px;
       font-weight: 700;
-      transition: all 0.2s;
       line-height: normal;
       margin-left: 0.5rem;
     }

@@ -17,7 +17,7 @@ export const fileListProps = {
 };
 
 export const readonlyProps = {
-  readonlyValue: {
+  textVal: {
     type: [String, Array] as PropType<string | string[]>,
     default: '',
   },

@@ -21,17 +21,21 @@ export function useMenuSetting() {
 
   const getMenuTheme = computed(() => appStore.getMenuSetting.theme);
 
-  const getMenuBgColor = computed(() => appStore.getMenuSetting.bgColor);
+  const getMenuBgColor = computed(() => appStore.getMenuSetting.backgroundColor);
 
   const getMenuTextColor = computed(() => appStore.getMenuSetting.textColor);
 
   const getMenuActiveTextColor = computed(() => appStore.getMenuSetting.activeTextColor);
+
+  const getMenuActiveBgColor = computed(() => appStore.getMenuSetting.activeBgColor);
 
   const getMenuChildrenBgColor = computed(() => appStore.getMenuSetting.childrenBgColor);
 
   const getMenuTrigger = computed(() => appStore.getMenuSetting.menuTrigger);
 
   const getUniqueOpened = computed(() => appStore.getMenuSetting.uniqueOpened);
+
+  const getMenuCollapseTransition = computed(() => appStore.getMenuSetting.collapseTransition);
 
   const getIsHorizontal = computed(() => {
     return unref(getMenuMode) === MenuModeEnum.HORIZONTAL;
@@ -59,9 +63,11 @@ export function useMenuSetting() {
     getMenuTheme,
     getIsHorizontal,
     getUniqueOpened,
+    getMenuCollapseTransition,
     getMenuBgColor,
     getMenuTextColor,
     getMenuActiveTextColor,
+    getMenuActiveBgColor,
     getMenuChildrenBgColor,
     getMenuTrigger,
     mixSideHasChildren,

@@ -1,7 +1,7 @@
 <script lang="tsx">
   import { computed, defineComponent, h, unref, createVNode } from 'vue';
   import { useI18n } from 'vue-i18n';
-  import { useMenuIcon } from '../useDefaultOpeneds';
+  import { useMenuIcon } from '../useMenuIcon';
   import { isEmpty } from 'lodash-es';
   import { itemProps } from '../props';
   import { BasicReadonly } from '/@/components/psc-readonly';
@@ -35,7 +35,7 @@
         return (
           <BasicReadonly
             style={{ color: unref(getMenuTextColor), zIndex: 1 }}
-            readonlyValue={t(props.menuItem.name)}
+            textVal={t(props.menuItem.name)}
           />
         );
       }

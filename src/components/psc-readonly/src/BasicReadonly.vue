@@ -30,15 +30,15 @@
       });
       const renderRealVal = computed(() => {
         let valStr = '';
-        const { readonlyValue, keyToValList } = unref(getBindValues);
-        const valArr = isString(readonlyValue) ? readonlyValue.split(',') : readonlyValue;
+        const { textVal, keyToValList } = unref(getBindValues);
+        const valArr = isString(textVal) ? textVal.split(',') : textVal;
         for (let i = 0; i < valArr.length; i++) {
           const element = valArr[i];
           const findPropList = keyToValList.find((x) => x.key === element);
           findPropList && (valStr += findPropList.value);
           i !== valArr.length - 1 && (valStr += ',');
         }
-        const val = isEmpty(keyToValList) ? readonlyValue : valStr;
+        const val = isEmpty(keyToValList) ? textVal : valStr;
         return <TxtComp {...attrs}>{val}</TxtComp>;
       });
       const renderItem = computed(() => {

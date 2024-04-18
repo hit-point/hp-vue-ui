@@ -2,9 +2,9 @@
  * @description: 请求结果
  */
 export enum ResultEnum {
-  SUCCESS = 0,
-  ERROR = -1,
-  TIMEOUT = 401,
+  SUCCESS = 200,
+  ERROR = 500,
+  TIMEOUT = 504,
   TYPE = 'success',
 }
 

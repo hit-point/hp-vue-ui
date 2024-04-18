@@ -2,6 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv';
 
+/**
+ * 对环境变量的类型进行处理
+ * @param envConf Obj
+ * @returns
+ */
 export function wrapperEnv(envConf: Recordable): ViteEnv {
   const ret: any = {};
 

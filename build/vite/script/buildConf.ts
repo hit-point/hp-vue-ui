@@ -47,7 +47,7 @@ function createConfig(params: CreateConfigParams) {
 }
 
 export function runBuildConfig() {
-  // 获取我们可以配置的环境变量对象
+  // 获取我们可以配置的环境变量对象，默认取VITE_GLOB_开头的环境变量
   const config = getEnvConfig();
   // 获取配置文件的JS名
   const configFileName = getConfigFileName(config);

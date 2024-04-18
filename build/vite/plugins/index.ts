@@ -8,7 +8,6 @@ import { configCompressPlugin } from './compress';
 import { configHtmlPlugin } from './html';
 import { configVisualizerConfig } from './visualizer';
 import { configMockPlugin } from './mock';
-// import uploadVersion from './uploadVersion';
 
 export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   const {
@@ -52,8 +51,6 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     vitePlugins.push(
       configCompressPlugin(VITE_BUILD_COMPRESS, VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE),
     );
-    // 在public生成version文件
-    // vitePlugins.push(uploadVersion({ version: lastBuildTime }));
   }
 
   return vitePlugins;

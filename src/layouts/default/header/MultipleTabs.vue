@@ -14,9 +14,8 @@
 </template>
 
 <script setup lang="ts">
-  import { RouteLocationNormalized, RouteMeta } from 'vue-router';
+  import { RouteLocationNormalized } from 'vue-router';
   import { listenerRouteChange } from '/@/logics/mitt/routeChange';
-  import { router } from '/@/router';
   import { computed, ref, unref } from 'vue';
   import { useUserStore } from '/@/stores/modules/user';
   import { useMultipleTabStore } from '/@/stores/modules/multipleTab';
@@ -36,21 +35,13 @@
       return;
     }
 
-    const { path, fullPath, meta = {} } = route;
-    const { currentActiveMenu, hideTab } = meta as RouteMeta;
-    const isHide = !hideTab ? null : currentActiveMenu;
-    const p = isHide || fullPath || path;
+    const { path, fullPath } = route;
+    const p = fullPath || path;
     if (activeKeyRef.value !== p) {
       activeKeyRef.value = p as string;
     }
 
-    if (isHide) {
-      const findParentRoute = router.getRoutes().find((item) => item.path === currentActiveMenu);
-
-      findParentRoute && tabStore.addTab(findParentRoute as unknown as RouteLocationNormalized);
-    } else {
-      tabStore.addTab(unref(route));
-    }
+    tabStore.addTab(unref(route));
   });
 
   const getTabsState = computed(() => {

@@ -18,7 +18,7 @@ export function getTransitionName({
     return undefined;
   }
 
-  const transitionName = 'fade-transform';
+  const transitionName = 'xxx';
   const name: string | undefined = transitionName;
 
   return def || (route.meta.transitionName as string) || name;

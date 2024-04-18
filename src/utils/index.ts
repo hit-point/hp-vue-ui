@@ -62,17 +62,13 @@ export type CustomComponent = Component & { displayName?: string };
 /**
  * 全局注册函数
  * @param component 需要全局注册的模块
- * @param alias 挂载在全局变量的别名
  * @returns 注册的模块
  */
-export const withInstall = <T extends CustomComponent>(component: T, alias?: string) => {
+export const withInstall = <T extends CustomComponent>(component: T) => {
   (component as Record<string, unknown>).install = (app: App) => {
     const compName = component.name || component.displayName;
     if (!compName) return;
     app.component(compName, component);
-    if (alias) {
-      app.config.globalProperties[alias] = component;
-    }
   };
   return component as WithInstall<T>;
 };

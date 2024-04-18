@@ -66,13 +66,7 @@
         const menus = await getMenus();
 
         // 确定目标path
-        const routeMatched = currentRoute.value.matched;
-        const cur = routeMatched?.[routeMatched.length - 1];
-        let path = currentRoute.value.path;
-
-        if (cur && cur?.meta?.currentActiveMenu) {
-          path = cur.meta.currentActiveMenu as string;
-        }
+        const path = currentRoute.value.path;
 
         // 取目标path的parent路由
         const parent = getAllParentPath(menus, path);
@@ -83,14 +77,6 @@
         if (!matched || matched.length === 0) return;
 
         const breadcrumbList = filterItem(matched);
-
-        // 取目标path本身激活路由
-        if (currentRoute.value.meta?.currentActiveMenu) {
-          breadcrumbList.push({
-            ...currentRoute.value,
-            name: currentRoute.value.meta?.title || currentRoute.value.name,
-          } as unknown as RouteLocationMatched);
-        }
 
         // 赋值
         routes.value = breadcrumbList;

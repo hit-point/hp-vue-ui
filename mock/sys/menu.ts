@@ -7,7 +7,6 @@ const homeRoute = {
   path: '/home',
   name: 'HomeParent',
   component: 'LAYOUT',
-  redirect: '/home',
   meta: {
     title: 'menus.home',
     icon: 'carbon:home',
@@ -33,7 +32,6 @@ const localesRoute = {
   path: '/locales',
   name: 'LocalesParent',
   component: 'LAYOUT',
-  redirect: '/locales/index',
   meta: {
     title: 'menus.locales',
     icon: 'ion:language',
@@ -67,10 +65,11 @@ const componentsRoute = {
     {
       path: 'dialog',
       name: 'Dialog',
-      component: '/components/dialog/index.vue',
+      // component: '/components/dialog/index.vue',
       meta: {
         title: 'menus.component.dialog',
         currentActive: '/components/dialog',
+        frameSrc: 'https://doc.vvbin.cn/',
       },
     },
     {

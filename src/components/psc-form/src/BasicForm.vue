@@ -144,36 +144,34 @@
 </template>
 
 <style lang="scss" scoped>
-  $basic-color: v-bind('getProps.borderColor');
-
   .basic-form {
-    border-left: 1px solid $basic-color;
-    border-top: 1px solid $basic-color;
+    border-left: 1px solid v-bind('borderColor');
+    border-top: 1px solid v-bind('borderColor');
     margin: 8px;
 
-    :deep(.el-col) {
-      border-bottom: 1px solid $basic-color;
-      border-right: 1px solid $basic-color;
+    .el-col {
+      border-bottom: 1px solid v-bind('borderColor');
+      border-right: 1px solid v-bind('borderColor');
     }
 
-    :deep(.el-form-item--default) {
+    .el-form-item--default {
       margin-bottom: 0;
       height: 100%;
     }
 
-    :deep(.el-form-item--default .el-form-item__label) {
+    .el-form-item--default .el-form-item__label {
       height: 100%;
       align-items: center;
       padding: 8px;
       background-color: #e7f3fc;
     }
 
-    :deep(.el-form-item--default .el-form-item__content) {
-      border-left: 1px solid $basic-color;
+    .el-form-item--default .el-form-item__content {
+      border-left: 1px solid v-bind('borderColor');
       padding: 8px;
     }
 
-    :deep(.el-form-item--default .el-form-item__error) {
+    .el-form-item--default .el-form-item__error {
       top: 64%;
       left: 8px;
     }

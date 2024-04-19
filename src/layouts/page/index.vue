@@ -5,16 +5,25 @@
   import { useTransitionSetting } from '/@/hooks/setting/useTransitionSetting';
   import { useRootSetting } from '/@/hooks/setting/useRootSetting';
   import { useDesign } from '/@/hooks/web/useDesign';
+  import { useMultipleTabStore } from '/@/stores/modules/multipleTab';
 
   export default defineComponent({
     name: 'PageLayout',
     setup() {
       const { prefixCls } = useDesign('layout-main');
       const { getBasicTransition, getEnableTransition } = useTransitionSetting();
+      const tabStore = useMultipleTabStore();
 
       const { getOpenKeepAlive } = useRootSetting();
 
       const openCache = computed(() => unref(getOpenKeepAlive));
+
+      const getCaches = computed((): string[] => {
+        if (!unref(getOpenKeepAlive)) {
+          return [];
+        }
+        return tabStore.getCachedTabList;
+      });
 
       function renderComponent({ Component, route }: TransitionContext) {
         return (
@@ -34,6 +43,8 @@
             <Transition
               name={getTransitionName({
                 route,
+                openCache: unref(openCache),
+                cacheTabs: unref(getCaches),
                 enableTransition: unref(getEnableTransition),
                 def: unref(getBasicTransition),
               })}

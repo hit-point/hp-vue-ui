@@ -28,7 +28,14 @@ export function useBreakpoint() {
   };
 }
 
-// 断点监听函数只需执行一次
+/**
+ * @description 监听视图函数
+ * @param fn CreateCallbackParams
+ * @example 
+ * createBreakpointListen(({ ...CreateCallbackParams }) => {
+      ...
+   });
+ */
 export function createBreakpointListen(fn?: (opt: CreateCallbackParams) => void) {
   // 屏幕尺寸
   const screenRef = ref<sizeEnum>(sizeEnum.XL);

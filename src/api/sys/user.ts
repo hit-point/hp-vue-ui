@@ -51,6 +51,9 @@ export function doLogout() {
   return defHttp.get({ url: Api.Logout });
 }
 
+/**
+ * @description: 用户权限列表
+ */
 export function getPermCode() {
   return defHttp.get<string[]>({ url: Api.GetPermCode });
 }

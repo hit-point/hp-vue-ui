@@ -40,11 +40,11 @@ const cacheTab = projectSetting.multiTabsSetting.cache;
 export const useMultipleTabStore = defineStore({
   id: 'app-multiple-tab',
   state: (): MultipleTabState => ({
-    // Tabs that need to be cached
+    // 标签卡需要缓存的tabs
     cacheTabList: new Set(),
-    // multiple tab list
+    // 标签卡列表
     tabList: cacheTab ? Persistent.getLocal(MULTIPLE_TABS_KEY) || [] : [],
-    // Index of the last moved tab
+    // 上次移动的选项卡的索引
     lastDragEndIndex: 0,
   }),
   getters: {

@@ -6,6 +6,9 @@ export interface LoginParams {
   password: string;
 }
 
+/**
+ * @description: 角色信息返回字段
+ */
 export interface RoleInfo {
   roleName: string;
   value: string;

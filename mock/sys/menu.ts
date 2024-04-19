@@ -9,7 +9,7 @@ const homeRoute = {
   component: 'LAYOUT',
   meta: {
     title: 'menus.home',
-    icon: 'carbon:home',
+    icon: 'homeFilled',
     hideChildrenInMenu: true,
   },
   children: [
@@ -21,82 +21,57 @@ const homeRoute = {
         hideMenu: true,
         title: 'menus.home',
         currentActive: '/home',
-        icon: 'carbon:home',
-      },
-    },
-  ],
-};
-
-// 国际化
-const localesRoute = {
-  path: '/locales',
-  name: 'LocalesParent',
-  component: 'LAYOUT',
-  meta: {
-    title: 'menus.locales',
-    icon: 'ion:language',
-    hideChildrenInMenu: true,
-  },
-  children: [
-    {
-      path: '',
-      name: 'Locales',
-      component: '/locales/index.vue',
-      meta: {
-        hideMenu: true,
-        title: 'menus.locales',
-        currentActive: '/locales',
-        icon: 'ion:language',
+        // icon: 'carbon:home',
       },
     },
   ],
 };
 
 // 模块
-const componentsRoute = {
-  path: '/components',
-  name: 'Components',
+const modulesRoute = {
+  path: '/demo',
+  name: 'Modules',
   component: 'LAYOUT',
   meta: {
-    icon: 'majesticons:qr-code-line',
-    title: 'menus.component.title',
+    icon: 'menu',
+    // icon: 'majesticons:qr-code-line',
+    title: 'menus.modules.title',
   },
   children: [
     {
       path: 'dialog',
       name: 'Dialog',
-      // component: '/components/dialog/index.vue',
+      component: '/demo/dialog/index.vue',
       meta: {
-        title: 'menus.component.dialog',
-        currentActive: '/components/dialog',
-        frameSrc: 'https://doc.vvbin.cn/',
+        title: 'menus.modules.dialog',
+        currentActive: '/demo/dialog',
       },
     },
     {
       path: 'readonly',
       name: 'Readonly',
-      component: '/components/readonly/index.vue',
+      component: '/demo/readonly/index.vue',
       meta: {
-        title: 'menus.component.readonly',
-        currentActive: '/components/readonly',
+        title: 'menus.modules.readonly',
+        currentActive: '/demo/readonly',
       },
     },
     {
       path: 'button',
-      name: 'ButtonComp',
-      component: '/components/button/index.vue',
+      name: 'BtnComp',
+      component: '/demo/button/index.vue',
       meta: {
-        title: 'menus.component.button',
-        currentActive: '/components/button',
+        title: 'menus.modules.button',
+        currentActive: '/demo/button',
       },
     },
     {
       path: 'outside',
-      name: 'OutsideComp',
-      component: '/components/outside/index.vue',
+      name: 'OSComp',
+      component: '/demo/outside/index.vue',
       meta: {
-        title: 'menus.component.outside',
-        currentActive: '/components/outside',
+        title: 'menus.modules.outside',
+        currentActive: '/demo/outside',
       },
     },
   ],
@@ -108,7 +83,8 @@ const directivesRoute = {
   name: 'Directives',
   component: 'LAYOUT',
   meta: {
-    icon: 'majesticons:academic-cap',
+    icon: 'guide',
+    // icon: 'majesticons:academic-cap',
     title: 'menus.directives.title',
   },
   children: [
@@ -148,7 +124,8 @@ const backRoute = {
   name: 'Permission',
   component: 'LAYOUT',
   meta: {
-    icon: 'carbon:user-role',
+    icon: 'flUser',
+    // icon: 'carbon:user-role',
     title: 'menus.permission.title',
   },
   children: [
@@ -179,7 +156,8 @@ const systemRoute = {
   name: 'System',
   component: 'LAYOUT',
   meta: {
-    icon: 'carbon:settings',
+    icon: 'setting',
+    // icon: 'carbon:settings',
     title: 'menus.system.title',
   },
   children: [
@@ -240,17 +218,10 @@ export default [
       let menu: Object[];
       switch (id) {
         case '1':
-          menu = [
-            homeRoute,
-            localesRoute,
-            backRoute,
-            systemRoute,
-            directivesRoute,
-            componentsRoute,
-          ];
+          menu = [homeRoute, backRoute, directivesRoute, modulesRoute, systemRoute];
           break;
         case '2':
-          menu = [homeRoute, localesRoute, directivesRoute, componentsRoute];
+          menu = [homeRoute, directivesRoute, modulesRoute];
           break;
         default:
           menu = [];

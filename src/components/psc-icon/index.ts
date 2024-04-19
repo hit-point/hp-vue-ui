@@ -7,3 +7,8 @@ const IconifyIconOffline = iconifyIconOffline;
 const IconifyIconOnline = iconifyIconOnline;
 
 export { IconifyIconOffline, IconifyIconOnline };
+
+/**
+ * @description 图形验证码函数
+ */
+export { useRenderIcon } from './src/useRenderIcon';

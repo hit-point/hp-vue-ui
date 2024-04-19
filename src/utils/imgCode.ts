@@ -1,48 +1,35 @@
-import { ref, onMounted } from 'vue';
-
 /**
- * 绘制图形验证码
- * @param width - 图形宽度
- * @param height - 图形高度
+ * 随机数
+ * @param min number
+ * @param max number
+ * @returns number
  */
-export const useCaptcha = (width = 120, height = 30) => {
-  const domRef = ref<HTMLCanvasElement>();
-  const imgCode = ref('');
-
-  function setImgCode(code: string) {
-    imgCode.value = code;
-  }
-
-  function getImgCode() {
-    if (!domRef.value) return;
-    imgCode.value = draw(domRef.value, width, height);
-  }
-
-  onMounted(() => {
-    getImgCode();
-  });
-
-  return {
-    domRef,
-    imgCode,
-    setImgCode,
-    getImgCode,
-  };
-};
-
-function randomNum(min: number, max: number) {
+export function randomNum(min: number, max: number) {
   const num = Math.floor(Math.random() * (max - min) + min);
   return num;
 }
 
-function randomColor(min: number, max: number) {
+/**
+ *  随机颜色
+ * @param min number
+ * @param max number
+ * @returns 'rgb(x,x,x)'
+ */
+export function randomColor(min: number, max: number) {
   const r = randomNum(min, max);
   const g = randomNum(min, max);
   const b = randomNum(min, max);
   return `rgb(${r},${g},${b})`;
 }
 
-function draw(dom: HTMLCanvasElement, width: number, height: number) {
+/**
+ * 绘制canvas画布并返回imgCode
+ * @param dom HTMLCanvasElement
+ * @param width number
+ * @param height number
+ * @returns string
+ */
+export function draw(dom: HTMLCanvasElement, width: number, height: number) {
   let imgCode = '';
 
   const NUMBER_STRING = '0123456789';
@@ -81,5 +68,6 @@ function draw(dom: HTMLCanvasElement, width: number, height: number) {
     ctx.fillStyle = randomColor(150, 200);
     ctx.fill();
   }
+
   return imgCode;
 }

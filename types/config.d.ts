@@ -70,8 +70,7 @@ export interface ProjectConfig {
   permissionMode: PermissionModeEnum;
   // 会话超时处理
   sessionTimeoutProcessing: SessionTimeoutProcessingEnum;
-
-  // menuType: MenuTypeEnum;
+  // 头部配置
   headerSetting: HeaderSetting;
   // menu配置
   menuSetting: MenuSetting;

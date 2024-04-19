@@ -1,6 +1,6 @@
 export default {
   home: 'Home',
-  component: {
+  modules: {
     title: 'Module',
     dialog: 'Dialog',
     readonly: 'Readonly',

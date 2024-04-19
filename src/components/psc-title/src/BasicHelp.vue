@@ -2,9 +2,8 @@
   import { CSSProperties, PropType, computed, defineComponent, h, unref } from 'vue';
   import { getSlot } from '/@/utils/helper/tsxHelper';
   import { isArr, isStr } from '/@/utils/is';
-  import { useRenderIcon } from '/@/components/psc-icon/src/hooks';
+  import { useRenderIcon } from '/@/components/psc-icon';
   import { useDesign } from '/@/hooks/web/useDesign';
-  import Warn from '@iconify-icons/ep/warning';
   export default defineComponent({
     name: 'BasicHelp',
     props: {
@@ -32,7 +31,7 @@
           default: () => (
             <span class={prefixCls}>
               {getSlot(slots) ||
-                h(useRenderIcon(Warn), {
+                h(useRenderIcon('warn'), {
                   style: { verticalAlign: 'middle', fontSize: props.fontSize },
                 })}
             </span>

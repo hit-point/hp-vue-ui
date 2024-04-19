@@ -1,5 +1,5 @@
 import { resolveDynamicComponent } from 'vue';
-import { useRenderIcon } from '/@/components/psc-icon/src/hooks';
+import { useRenderIcon } from '../../psc-icon/src/useRenderIcon';
 import { Menu as MenuType } from '/@/router/types';
 
 export function useMenuIcon() {

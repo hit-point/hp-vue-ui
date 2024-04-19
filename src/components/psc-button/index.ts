@@ -1,3 +1,7 @@
-import BasicButton from './src/BasicButton.vue';
+import { withInstall } from '/@/utils';
+import basicButton from './src/BasicButton.vue';
 
-export { BasicButton };
+/**
+ * @description 按钮组件
+ */
+export const BasicButton = withInstall(basicButton);

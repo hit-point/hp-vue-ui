@@ -1,12 +1,10 @@
-import { InjectionKey, Ref } from 'vue';
+import { InjectionKey } from 'vue';
 import { createContext, useContext } from '/@/hooks/core/useContext';
 
-// 全局组件通信参数类型
+// 应用参数类型
 export interface AppProviderContextProps {
-  // 全局样式前缀
-  prefixCls: Ref<string>;
-  // 窗口是否可更改变量
-  isMobile: Ref<boolean>;
+  // 样式前缀
+  prefixCls: string;
 }
 
 // 限制了provide导出的数据必须是AppProviderContextProps类型

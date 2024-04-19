@@ -1,10 +1,7 @@
 <script lang="tsx">
   import { defineAsyncComponent, defineComponent, h } from 'vue';
   import { useDesign } from '/@/hooks/web/useDesign';
-  import { IconifyIcon } from '@iconify/vue';
-  import { useRenderIcon } from '/@/components/psc-icon/src/hooks';
-  import Paperclip from '@iconify-icons/ep/paperclip';
-  import Delete from '@iconify-icons/ep/delete';
+  import { useRenderIcon } from '/@/components/psc-icon';
   import { fileListProps } from '../props';
   export default defineComponent({
     name: 'BasicFileList',
@@ -12,7 +9,7 @@
     setup(props) {
       const { prefixCls } = useDesign('basic-filelist');
       const TxtComp = defineAsyncComponent(() => import('./TxtComp.vue'));
-      const renderIcon = (icon: IconifyIcon, customClass?: string) => {
+      const renderIcon = (icon: string, customClass?: string) => {
         return h(useRenderIcon(icon), {
           class: `${prefixCls}__file-icon ${customClass}`,
         });
@@ -21,9 +18,9 @@
         <>
           {props.keyToValList.map((x) => (
             <div class={`${prefixCls}__file`}>
-              {renderIcon(Paperclip, '')}
+              {renderIcon('paperclip', '')}
               <TxtComp class={`${prefixCls}__file-name`}>{x.fileName || x.name}</TxtComp>
-              {props.isDelete ? renderIcon(Delete, `${prefixCls}__file-delete`) : null}
+              {props.isDelete ? renderIcon('delete', `${prefixCls}__file-delete`) : null}
             </div>
           ))}
         </>

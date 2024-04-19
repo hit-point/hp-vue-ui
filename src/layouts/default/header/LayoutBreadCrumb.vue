@@ -11,9 +11,7 @@
   import { useUserStore, useUserStoreWithOut } from '/@/stores/modules/user';
   import { LocaleType } from '/#/config';
   import { useLocale } from '/@/locales/useLocale';
-  import { useRenderIcon } from '/@/components/psc-icon/src/hooks';
-  import Expand from '@iconify-icons/ep/expand';
-  import Fold from '@iconify-icons/ep/fold';
+  import { useRenderIcon } from '/@/components/psc-icon';
 
   export default defineComponent({
     name: 'LayoutBreadCrumb',
@@ -100,9 +98,9 @@
           <div class={'layout-bread__left'}>
             <el-icon class={'layout-bread__icon'} onClick={toggleCollapsed}>
               {unref(getCollapsed) ? (
-                <>{h(useRenderIcon(Expand))}</>
+                <>{h(useRenderIcon('expand'))}</>
               ) : (
-                <>{h(useRenderIcon(Fold))}</>
+                <>{h(useRenderIcon('fold'))}</>
               )}
             </el-icon>
             <el-breadcrumb separator="/">{renderItem()}</el-breadcrumb>

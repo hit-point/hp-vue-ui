@@ -1,7 +1,7 @@
 export default {
   home: '首页',
-  component: {
-    title: '模块',
+  modules: {
+    title: '功能',
     dialog: '弹框组件',
     readonly: '只读组件',
     button: '按钮组件',

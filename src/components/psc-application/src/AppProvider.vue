@@ -1,83 +1,23 @@
-<script lang="tsx">
-  import { defineComponent, toRefs, ref } from 'vue';
+<script setup lang="ts">
   import { createAppProviderContext } from './useAppContext';
-  import { createBreakpointListen } from '/@/hooks/event/useBreakpoint';
   import { prefixCls } from '/@/settings/designSetting';
-  // import { useAppStore } from '/@/store/modules/app';
-  // import { MenuModeEnum, MenuTypeEnum } from '/@/enums/menuEnum';
 
-  const props = {
-    /**
-     * 全局样式前缀
-     */
-    prefixCls: { type: String, default: prefixCls },
-  };
-
-  export default defineComponent({
+  defineOptions({
     name: 'AppProvider',
     inheritAttrs: false,
-    props,
-    setup(props, { slots }) {
-      // 窗口是否可更改变量
-      const isMobile = ref(false);
-      // const isSetState = ref(false);
-
-      // const appStore = useAppStore();
-
-      // 监视屏幕断点信息的更改
-      createBreakpointListen(({ screenMap, sizeEnum, width }) => {
-        const lgWidth = screenMap.get(sizeEnum.LG);
-        if (lgWidth) {
-          isMobile.value = width.value - 1 < lgWidth;
-        }
-        // handleRestoreState();
-      });
-
-      const { prefixCls } = toRefs(props);
-
-      // 将全局样式前缀变量注入全局
-      createAppProviderContext({ prefixCls, isMobile });
-
-      /**
-       * 当窗口缩小时，记住一些状态，并在窗口恢复时恢复这些状态
-       */
-      // function handleRestoreState() {
-      //   if (unref(isMobile)) {
-      //     if (!unref(isSetState)) {
-      //       isSetState.value = true;
-      //       const {
-      //         menuSetting: {
-      //           type: menuType,
-      //           mode: menuMode,
-      //           collapsed: menuCollapsed,
-      //           split: menuSplit,
-      //         },
-      //       } = appStore.getProjectConfig;
-      //       appStore.setProjectConfig({
-      //         menuSetting: {
-      //           type: MenuTypeEnum.SIDEBAR,
-      //           mode: MenuModeEnum.INLINE,
-      //           split: false,
-      //         },
-      //       });
-      //       appStore.setBeforeMiniInfo({ menuMode, menuCollapsed, menuType, menuSplit });
-      //     }
-      //   } else {
-      //     if (unref(isSetState)) {
-      //       isSetState.value = false;
-      //       const { menuMode, menuCollapsed, menuType, menuSplit } = appStore.getBeforeMiniInfo;
-      //       appStore.setProjectConfig({
-      //         menuSetting: {
-      //           type: menuType,
-      //           mode: menuMode,
-      //           collapsed: menuCollapsed,
-      //           split: menuSplit,
-      //         },
-      //       });
-      //     }
-      //   }
-      // }
-      return () => slots.default?.();
-    },
   });
+
+  defineProps({
+    /**
+     * 样式前缀
+     */
+    preCls: { type: String, default: prefixCls },
+  });
+
+  // 注入样式前缀变量
+  createAppProviderContext({ prefixCls });
 </script>
+
+<template>
+  <slot />
+</template>

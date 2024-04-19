@@ -1,28 +1,28 @@
 <script lang="tsx">
   import { computed, defineComponent, h, onMounted, ref, unref, watch } from 'vue';
-  import { tabListProps } from './props';
-  import { TabListActionType, TabListPropsType, TabsListType } from './types';
+  import { listProps } from './props';
+  import { ListActionType, ListTabsType, ListPropsType } from './types';
   import { deepMerge } from '/@/utils';
   import Search from '@iconify-icons/ep/search';
-  import { useRenderIcon } from '/@/components/psc-icon/src/hooks';
+  import { useRenderIcon } from '/@/components/psc-icon';
   import { BasicTxt } from '/@/components/psc-readonly';
   export default defineComponent({
-    name: 'BasicTabList',
-    props: tabListProps,
+    name: 'BasicList',
+    props: listProps,
     emits: ['register', 'tabChange'],
     setup(props, { emit }) {
-      const propsRef = ref<Partial<TabListPropsType>>();
+      const propsRef = ref<Partial<ListPropsType>>();
       const activeNameRef = ref('');
       const searchInput = ref('');
       const getProps = computed(() => {
         return { ...props, ...unref(propsRef) };
       });
 
-      const setProps = (props: Partial<TabListPropsType>) => {
+      const setProps = (props: Partial<ListPropsType>) => {
         propsRef.value = deepMerge(unref(propsRef) || {}, props);
       };
 
-      const tabListAction: TabListActionType = {
+      const tabListAction: ListActionType = {
         setProps,
       };
 
@@ -37,17 +37,17 @@
         emit('register', tabListAction);
       });
 
-      const renderLabel = (x: TabsListType) => {
+      const renderLabel = (x: ListTabsType) => {
         return <span>{x.label}</span>;
       };
 
       const renderDefault = computed(() => {
-        const { tabList, loading, total, isShowBomBtn, bomBtnTxt } = unref(getProps);
+        const { list, loading, total, isShowBomBtn, bomBtnTxt } = unref(getProps);
         return (
           <div v-psc-loading={loading} style={{ minHeight: '350px', textAlign: 'center' }}>
             <el-input v-model={searchInput.value} prefixIcon={h(useRenderIcon(Search))} clearable />
             <ul>
-              {tabList.map((x) => (
+              {list.map((x) => (
                 <li key={x.id} class={'tab-panel-content__li'}>
                   <BasicTxt>
                     {x.name}-{x.id}
@@ -70,14 +70,14 @@
       });
 
       const render = () => {
-        const { tabsList, isDisable } = unref(getProps);
+        const { listTabs, isDisable } = unref(getProps);
         return (
           <el-tabs
             v-model={activeNameRef.value}
             onTabChange={(name) => emit('tabChange', name)}
             stretch
           >
-            {tabsList.map((x) => (
+            {listTabs.map((x) => (
               <el-tab-pane
                 key={x.name}
                 name={x.name}

@@ -1,15 +1,15 @@
 import { PropType } from 'vue';
-import { TabListType, TabsListType } from './types';
+import { ListType, ListTabsType } from './types';
 
-export const tabListProps = {
+export const listProps = {
   // 列表数据
-  tabList: {
-    type: Array as PropType<TabListType[]>,
+  list: {
+    type: Array as PropType<ListType[]>,
     default: () => [],
   },
   // 标签数据
-  tabsList: {
-    type: Array as PropType<TabsListType[]>,
+  listTabs: {
+    type: Array as PropType<ListTabsType[]>,
     default: () => [],
   },
   // 标签激活项

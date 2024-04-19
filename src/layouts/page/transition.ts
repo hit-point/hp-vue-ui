@@ -8,9 +8,13 @@ export interface TransitionContext {
 
 export function getTransitionName({
   route,
+  openCache,
+  cacheTabs,
   enableTransition,
   def,
 }: Pick<TransitionContext, 'route'> & {
+  openCache: boolean;
+  cacheTabs: string[];
   enableTransition: boolean;
   def: string;
 }): string | undefined {
@@ -18,8 +22,12 @@ export function getTransitionName({
     return undefined;
   }
 
-  const transitionName = 'xxx';
-  const name: string | undefined = transitionName;
+  const isInCache = cacheTabs.includes(route.name as string);
+  const transitionName = 'fade-slide';
+  let name: string | undefined = transitionName;
 
+  if (openCache) {
+    name = isInCache && route.meta.loaded ? transitionName : undefined;
+  }
   return def || (route.meta.transitionName as string) || name;
 }

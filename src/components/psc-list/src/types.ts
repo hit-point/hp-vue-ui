@@ -1,19 +1,19 @@
-export interface TabListType {
+export interface ListType {
   id: number;
   name: string;
   createBy: string;
 }
 
-export interface TabsListType {
+export interface ListTabsType {
   label: string;
   name: string;
 }
 
-export interface TabListPropsType {
+export interface ListPropsType {
   // 列表数据
-  tabList: TabListType[];
+  list: ListType[];
   // 标签页数据
-  tabsList: TabsListType[];
+  listTabs: ListTabsType[];
   // 标签激活项
   activeName: string;
   // 列表选中项
@@ -34,10 +34,10 @@ export interface TabListPropsType {
   isDisable: boolean;
 }
 
-export interface TabListActionType {
-  setProps: (prop: Partial<TabListPropsType>) => void;
+export interface ListActionType {
+  setProps: (prop: Partial<ListPropsType>) => void;
 }
 
-export type RegisterFn = (instance: TabListActionType) => void;
+export type RegisterFn = (instance: ListActionType) => void;
 
-export type UseTabListReturnType = [RegisterFn, TabListActionType];
+export type UseListReturnType = [RegisterFn, ListActionType];

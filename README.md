@@ -1,6 +1,6 @@
 <h1>pasco-admin</h1>
 
-**中文**
+![GitHub License](https://img.shields.io/github/license/pasco152/pasco-admin?style=flat) ![GitHub Release](https://img.shields.io/github/v/release/pasco152/pasco-admin?style=flat)
 
 ## 简介
 

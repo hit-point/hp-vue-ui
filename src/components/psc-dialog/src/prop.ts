@@ -1,5 +1,6 @@
 import { ButtonProps } from 'element-plus/es/components/button';
 import { PropType } from 'vue';
+import { Fn } from '/#/index';
 
 export const headerProp = {
   title: {

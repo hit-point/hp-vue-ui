@@ -1,6 +1,7 @@
 import { ref, watch } from 'vue';
 import { tryOnUnmounted } from '@vueuse/core';
 import { isFn } from '/@/utils/is';
+import { Fn } from '/#/index';
 
 export function useTimeoutFn(handle: Fn<any>, wait: number, native = false) {
   if (!isFn(handle)) {

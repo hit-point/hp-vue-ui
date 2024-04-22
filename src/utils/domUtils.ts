@@ -1,3 +1,5 @@
+import { Fn } from '/#/index';
+
 /* istanbul ignore next */
 export function on(
   element: Element | HTMLElement | Document | Window,

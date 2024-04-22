@@ -18,6 +18,7 @@ import {
   UseDrawerReturnType,
 } from './typing';
 import { isEqual, isFunction } from 'lodash-es';
+import { Fn } from '/#/index';
 
 const dataTransFerRef = reactive({});
 const visibleData = reactive<{ [key: number]: boolean }>({});

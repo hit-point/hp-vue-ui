@@ -1,6 +1,4 @@
-<h1>vue-pure-admin</h1>
-
-![GitHub license](https://img.shields.io/github/license/pure-admin/vue-pure-admin?style=flat)
+<h1>pasco-admin</h1>
 
 **中文**
 

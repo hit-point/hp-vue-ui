@@ -9,7 +9,6 @@
   import { useFormValues } from './hooks/useFormValues';
   import { useFormEvents } from './hooks/useFormEvents';
   import { createFormContext } from './hooks/useFormContext';
-  import { getModelReturnValue } from './utils';
 
   const props = defineProps(basicFormProps);
   const emit = defineEmits(['register', 'field-value-change', 'save']);
@@ -72,10 +71,10 @@
     saveAction: handleSave,
   });
 
-  function setFormModel(key: string, value: any, valueType: string) {
+  function setFormModel(key: string, value: any) {
     formModel[key] = value;
     validateField(key);
-    emit('field-value-change', key, getModelReturnValue({ value, valueType }));
+    emit('field-value-change', { key: key, value: value });
   }
 
   watch(
@@ -107,6 +106,7 @@
     setFieldsValue,
     setDisable,
     setShowHide,
+    getFieldsValue,
   };
 
   onMounted(() => {

@@ -5,6 +5,7 @@ export default {
     dialog: '弹框组件',
     readonly: '只读组件',
     button: '按钮组件',
+    form: '表单组件',
     list: '列表组件',
     outside: '点内外部触发不同事件组件',
   },

@@ -1,3 +1,3 @@
-import BasicPassWord from './src/BasicPassWord .vue';
+import BasicPassWord from './src/BasicPassWord.vue';
 
 export { BasicPassWord };

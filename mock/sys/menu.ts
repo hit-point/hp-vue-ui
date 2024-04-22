@@ -66,6 +66,15 @@ const modulesRoute = {
       },
     },
     {
+      path: 'form',
+      name: 'Form',
+      component: '/demo/form/index.vue',
+      meta: {
+        title: 'menus.modules.form',
+        currentActive: '/demo/form',
+      },
+    },
+    {
       path: 'list',
       name: 'List',
       component: '/demo/list/index.vue',

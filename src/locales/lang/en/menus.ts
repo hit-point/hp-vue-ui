@@ -5,6 +5,7 @@ export default {
     dialog: 'Dialog',
     readonly: 'Readonly',
     button: 'Button',
+    form: 'Form',
     list: 'List',
     outside: 'Outside',
   },

@@ -14,7 +14,7 @@ export enum FormItemEnum {
   INPUTNUMBER = 'InputNumber',
   RATE = 'Rate',
   DATEPICKER = 'DatePicker',
-  SELECTV2 = 'SelectV2',
+  SELECT = 'Select',
   APISELECT = 'ApiSelect',
   APIRADIOGROUP = 'ApiRadioGroup',
 }
@@ -24,7 +24,7 @@ export type ComponentType =
   | 'InputNumber'
   | 'Rate'
   | 'DatePicker'
-  | 'SelectV2'
+  | 'Select'
   | 'ApiSelect'
   | 'ApiRadioGroup'
   | 'ApiCheckBoxGroup'

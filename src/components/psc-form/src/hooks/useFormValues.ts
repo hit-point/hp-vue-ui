@@ -2,7 +2,6 @@ import { ComputedRef, Ref, toRaw, unref } from 'vue';
 import { FormActionType, FormSchema } from '../typing';
 import { isNullOrUnDef } from '/@/utils/is';
 import { cloneDeep } from 'lodash-es';
-import { getModelReturnValue } from '../utils';
 
 interface UseFormValuesContext {
   defaultVlaueRef: Ref<any>;
@@ -47,15 +46,6 @@ export function useFormValues({
     const formEl = unref(formElRef);
     if (!formEl) return {};
     const cloneFormModel = cloneDeep(unref(formModel));
-    const schemas = unref(getSchema);
-    schemas.forEach((item) => {
-      const { field, valueType } = item;
-      cloneFormModel[field] = getModelReturnValue({
-        value: cloneFormModel[field],
-        valueType,
-      });
-    });
-
     return toRaw(cloneFormModel);
   }
 

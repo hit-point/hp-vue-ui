@@ -125,7 +125,7 @@
             size={size}
             prop={field}
             v-slots={{
-              label: () => <span>{label}</span>,
+              label: () => <label for={'null'}>{label}</label>,
               default: () => <>{getContent()}</>,
             }}
           />

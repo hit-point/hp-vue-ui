@@ -105,7 +105,6 @@
     "vxe-table": "^4.3.12",
     "xe-utils": "^3.5.7"
   },
-  "packageManager": "pnpm@8.1.0",
   "engines": {
     "node": ">=16.9.0",
     "npm": ">=7.21.1",

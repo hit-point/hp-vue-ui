@@ -5,6 +5,7 @@ export default {
     dialog: 'Dialog',
     readonly: 'Readonly',
     button: 'Button',
+    list: 'List',
     outside: 'Outside',
   },
   permission: {
@@ -23,6 +24,7 @@ export default {
     title: 'Directives',
     repeat: 'Repeat',
     ripple: 'Ripple',
+    loading: 'Loading',
     outside: 'Outside',
   },
   locales: 'Locales',

@@ -66,6 +66,15 @@ const modulesRoute = {
       },
     },
     {
+      path: 'list',
+      name: 'List',
+      component: '/demo/list/index.vue',
+      meta: {
+        title: 'menus.modules.list',
+        currentActive: '/demo/list',
+      },
+    },
+    {
       path: 'outside',
       name: 'OSComp',
       component: '/demo/outside/index.vue',
@@ -104,6 +113,15 @@ const directivesRoute = {
       meta: {
         title: 'menus.directives.ripple',
         currentActive: '/directives/ripple',
+      },
+    },
+    {
+      path: 'loading',
+      name: 'Loading',
+      component: '/directives/loading/index.vue',
+      meta: {
+        title: 'menus.directives.loading',
+        currentActive: '/directives/loading',
       },
     },
     {

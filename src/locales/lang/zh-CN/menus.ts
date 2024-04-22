@@ -5,6 +5,7 @@ export default {
     dialog: '弹框组件',
     readonly: '只读组件',
     button: '按钮组件',
+    list: '列表组件',
     outside: '点内外部触发不同事件组件',
   },
   permission: {
@@ -23,6 +24,7 @@ export default {
     title: '自定义指令',
     repeat: '防止重复点击',
     ripple: '水波纹',
+    loading: '加载',
     outside: '点内外部触发不同事件',
   },
   locales: '国际化',

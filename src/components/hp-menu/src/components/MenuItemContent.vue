@@ -4,7 +4,7 @@
   import { useMenuIcon } from '../useMenuIcon';
   import { isEmpty } from 'lodash-es';
   import { itemProps } from '../props';
-  import { BasicReadonly } from '/@/components/psc-readonly';
+  import { BasicReadonly } from '/@/components/hp-readonly';
   import { useMenuSetting } from '/@/hooks/setting/useMenuSetting';
   export default defineComponent({
     name: 'MenuItemComponent',

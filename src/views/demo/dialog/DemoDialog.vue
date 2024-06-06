@@ -1,6 +1,6 @@
 <script lang="tsx">
   import { computed, defineComponent, unref } from 'vue';
-  import { BasicDialog, useDialogInner } from '/@/components/psc-dialog';
+  import { BasicDialog, useDialogInner } from '../../../components/hp-dialog';
   export default defineComponent({
     name: 'DemoDialog',
     components: {

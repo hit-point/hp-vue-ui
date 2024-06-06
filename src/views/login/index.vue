@@ -3,8 +3,8 @@
   import { Message } from '/@/utils/message';
   import Motion from '/@/hooks/web/useMotion';
   import { useUserStore } from '/@/stores/modules/user';
-  import { BasicCaptcha } from '/@/components/psc-captcha';
-  import { BasicButton } from '/@/components/psc-button';
+  import { BasicCaptcha } from '../../components/hp-captcha';
+  import { BasicButton } from '../../components/hp-button';
 
   export default defineComponent({
     name: 'Login',

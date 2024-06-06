@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { computed, reactive, ref, unref } from 'vue';
   import { loginApi } from '/@/api/sys/user';
-  import { BasicButton } from '/@/components/psc-button';
+  import { BasicButton } from '../../../components/hp-button';
   const apiData = ref();
   const loading = ref(false);
   const loginParams = reactive({

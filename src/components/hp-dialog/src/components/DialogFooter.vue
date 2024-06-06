@@ -1,12 +1,11 @@
 <script lang="tsx">
   import { defineComponent, unref, computed } from 'vue';
-  import { drawerProp } from '../prop';
-  import { BasicButton } from '/@/components/psc-button';
+  import { dialogProp } from '../prop';
+  import { BasicButton } from '../../../hp-button';
   import { getSlot } from '/@/utils/helper/tsxHelper';
   export default defineComponent({
-    name: 'DrawerFooter',
-    props: drawerProp,
-    inheritAttrs: false,
+    name: 'DialogFooter',
+    props: dialogProp,
     emits: ['ok', 'cancel'],
     setup(props, { slots, emit }) {
       const cancelProp = computed(() => {

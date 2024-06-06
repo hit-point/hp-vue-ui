@@ -1,7 +1,7 @@
 <script lang="tsx">
   import { defineAsyncComponent, defineComponent, h } from 'vue';
   import { useDesign } from '/@/hooks/web/useDesign';
-  import { useRenderIcon } from '/@/components/psc-icon';
+  import { useRenderIcon } from '../../../hp-icon';
   import { fileListProps } from '../props';
   export default defineComponent({
     name: 'BasicFileList',

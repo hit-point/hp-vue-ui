@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { Directive } from 'vue';
   import RepeatDirective from '/@/directives/repeatClick';
-  import { BasicButton } from '/@/components/psc-button';
+  import { BasicButton } from '../../../components/hp-button';
 
   // 局部自定义指令
   const vLocalRepeatClick: Directive = RepeatDirective;

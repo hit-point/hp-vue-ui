@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { onMounted } from 'vue';
-  import { BasicList, useList } from '/@/components/psc-list';
+  import { BasicList, useList } from '../../../components/hp-list';
   import { getListInfo } from '/@/api/list';
 
   const listProps = {

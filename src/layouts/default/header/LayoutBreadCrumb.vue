@@ -11,7 +11,7 @@
   import { useUserStore, useUserStoreWithOut } from '/@/stores/modules/user';
   import { LocaleType } from '/#/config';
   import { useLocale } from '/@/locales/useLocale';
-  import { useRenderIcon } from '/@/components/psc-icon';
+  import { useRenderIcon } from '../../../components/hp-icon';
 
   export default defineComponent({
     name: 'LayoutBreadCrumb',

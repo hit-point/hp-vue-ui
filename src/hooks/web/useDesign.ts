@@ -1,4 +1,4 @@
-import { useAppProviderContext } from '/@/components/psc-application/src/useAppContext';
+import { useAppProviderContext } from '../../components/hp-application/src/useAppContext';
 
 // 全局项目前缀
 export function useDesign(scope: string) {

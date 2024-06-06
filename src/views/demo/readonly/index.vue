@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { BasicReadonly } from '/@/components/psc-readonly';
+  import { BasicReadonly } from '../../../components/hp-readonly';
 
   const valProps = {
     textVal: 'lihu,wanghua',

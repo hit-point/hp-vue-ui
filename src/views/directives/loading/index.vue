@@ -13,8 +13,8 @@
 
 <template>
   <el-card>
-    <div class="demo-box" v-psc-loading="loadingV" @click="loadingFn">
-      <span>v-psc-loading自定义指令-仿antd加载指令</span>
+    <div class="demo-box" v-hp-loading="loadingV" @click="loadingFn">
+      <span>v-hp-loading自定义指令-仿antd加载指令</span>
     </div>
   </el-card>
 </template>

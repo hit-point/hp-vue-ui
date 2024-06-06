@@ -2,7 +2,7 @@
   import { CSSProperties, PropType, computed, defineComponent, h, unref } from 'vue';
   import { getSlot } from '/@/utils/helper/tsxHelper';
   import { isArr, isStr } from '/@/utils/is';
-  import { useRenderIcon } from '/@/components/psc-icon';
+  import { useRenderIcon } from '../../hp-icon';
   import { useDesign } from '/@/hooks/web/useDesign';
   export default defineComponent({
     name: 'BasicHelp',

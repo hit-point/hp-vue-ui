@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { computed, useAttrs, watch, unref, ref, watchEffect, PropType } from 'vue';
-  import { BasicPassWord } from '/@/components/psc-password';
+  import { BasicPassWord } from '/@/components/hp-password';
   import { useRuleFormItem } from '/@/hooks/component/useFormItem';
 
   const props = defineProps({

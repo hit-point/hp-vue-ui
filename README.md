@@ -1,10 +1,10 @@
-<h1>pasco-admin</h1>
+<h1>hp-vue-ui</h1>
 
-![GitHub License](https://img.shields.io/github/license/pasco152/pasco-admin?style=flat) ![GitHub Release](https://img.shields.io/github/v/release/pasco152/pasco-admin?style=flat)
+![GitHub License](https://img.shields.io/github/license/hit-point/hp-vue-ui) ![GitHub Release](https://img.shields.io/github/v/release/hit-point/hp-vue-ui)
 
 ## 简介
 
-`pasco-admin`是一款开源免费的企业级中后台管理系统模版，使用了`Vite`、`Element-Plus`、`TypeScript`、`Pinia`、`Tailwindcss`等主流技术开发。目前处于开发阶段，2.0.0 版本已经发布。
+`hp-vue-ui`是一款开源免费的企业级中后台管理系统模版，使用了`Vite`、`Element-Plus`、`TypeScript`、`Pinia`、`Tailwindcss`等主流技术开发。目前处于开发阶段，2.0.0 版本已经发布。
 
 ## 安装使用
 
@@ -13,7 +13,7 @@
 #### 从 `GitHub` 上拉取
 
 ```bash
-git clone https://github.com/Pasco152/pasco-admin.git
+git clone https://github.com/hit-point/hp-vue-ui.git
 ```
 
 ### 安装依赖
@@ -42,7 +42,7 @@ pnpm build
 
 ## 如何贡献
 
-非常欢迎您的加入！[提一个 Issue](https://github.com/Pasco152/pasco-admin/issues/new) 或者提交一个 `Pull Request`
+非常欢迎您的加入！[提一个 Issue](https://github.com/hit-point/hp-vue-ui/issues/new) 或者提交一个 `Pull Request`
 
 **Pull Request:**
 
@@ -72,7 +72,7 @@ pnpm build
 
 ## 维护者
 
-[Pasco152](https://github.com/Pasco152)
+[Pasco152](https://github.com/hit-point)
 
 ## 许可证
 

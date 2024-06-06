@@ -1,4 +1,4 @@
-import { createLoading } from '/@/components/psc-loading';
+import { createLoading } from '../components/hp-loading';
 import type { Directive, App } from 'vue';
 
 const LoadingDirective: Directive = {
@@ -26,7 +26,7 @@ const LoadingDirective: Directive = {
 };
 
 export function setupLoadingDirective(app: App) {
-  app.directive('psc-loading', LoadingDirective);
+  app.directive('hp-loading', LoadingDirective);
 }
 
 export default LoadingDirective;

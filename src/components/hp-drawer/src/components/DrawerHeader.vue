@@ -1,7 +1,7 @@
 <script lang="tsx">
   import { defineComponent } from 'vue';
   import { headerProp } from '../prop';
-  import { BasicTitle } from '/@/components/psc-title';
+  import { BasicTitle } from '/@/components/hp-title';
   export default defineComponent({
     name: 'DrawerHeader',
     props: headerProp,

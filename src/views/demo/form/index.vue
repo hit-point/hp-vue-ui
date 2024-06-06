@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { BasicForm, useForm } from '/@/components/psc-form';
+  import { BasicForm, useForm } from '../../../components/hp-form';
   const validatePass = (_rule, value, callback) => {
     if (value === '') {
       callback(new Error('Please input the value'));

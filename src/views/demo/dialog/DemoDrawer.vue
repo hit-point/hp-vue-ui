@@ -1,6 +1,6 @@
 <script lang="tsx">
   import { computed, defineComponent, unref } from 'vue';
-  import { BasicDrawer, useDrawerInner } from '/@/components/psc-drawer';
+  import { BasicDrawer, useDrawerInner } from '../../../components/hp-drawer';
   export default defineComponent({
     name: 'DemoDrawer',
     components: {

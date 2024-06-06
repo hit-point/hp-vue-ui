@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { ref } from 'vue';
   import '../../directives/demobox.scss';
-  import { ClickOutSide } from '/@/components/psc-clickoutside';
+  import { ClickOutSide } from '../../../components/hp-clickoutside';
 
   const textC = ref('ClickC');
 

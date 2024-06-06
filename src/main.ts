@@ -10,14 +10,14 @@ import { setupErrorHandle } from './logics/error-handle';
 import { initAppConfigStore } from '/@/logics/initAppConfig';
 import { setupStore } from '/@/stores';
 import { setupI18n } from '/@/locales/setupI18n';
-import { setupIcon } from '/@/components/psc-icon/setupIcon';
+import { setupIcon } from './components/hp-icon/setupIcon';
 
 import 'vxe-table/lib/style.css';
 import 'element-plus/dist/index.css';
 
 import './style/index.scss';
 // 引入本地图标
-import '/@/components/psc-icon/src/offlineIcon';
+import './components/hp-icon/src/offlineIcon';
 
 async function bootstrap() {
   const app = createApp(App);

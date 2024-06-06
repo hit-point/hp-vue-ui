@@ -1,7 +1,7 @@
 <script lang="tsx">
   import { defineComponent } from 'vue';
-  import { useDialog } from '/@/components/psc-dialog';
-  import { useDrawer } from '/@/components/psc-drawer';
+  import { useDialog } from '../../../components/hp-dialog';
+  import { useDrawer } from '../../../components/hp-drawer';
   import DemoDialog from './DemoDialog.vue';
   import DemoDrawer from './DemoDrawer.vue';
 

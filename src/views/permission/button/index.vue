@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { RoleEnum } from '/@/enums/roleEnum';
-  import { BasicButton } from '/@/components/psc-button';
+  import { BasicButton } from '../../../components/hp-button';
 </script>
 
 <template>

@@ -4,8 +4,8 @@
   import { ListActionType, ListTabsType, ListPropsType } from './types';
   import { deepMerge } from '/@/utils';
   import Search from '@iconify-icons/ep/search';
-  import { useRenderIcon } from '/@/components/psc-icon';
-  import { BasicTxt } from '/@/components/psc-readonly';
+  import { useRenderIcon } from '../../hp-icon';
+  import { BasicTxt } from '/@/components/hp-readonly';
   export default defineComponent({
     name: 'BasicList',
     props: listProps,
@@ -44,7 +44,7 @@
       const renderDefault = computed(() => {
         const { list, loading, total, isShowBomBtn, bomBtnTxt } = unref(getProps);
         return (
-          <div v-psc-loading={loading} style={{ minHeight: '350px', textAlign: 'center' }}>
+          <div v-hp-loading={loading} style={{ minHeight: '350px', textAlign: 'center' }}>
             <el-input v-model={searchInput.value} prefixIcon={h(useRenderIcon(Search))} clearable />
             <ul>
               {list.map((x) => (

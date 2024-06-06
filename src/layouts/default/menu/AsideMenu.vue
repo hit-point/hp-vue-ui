@@ -1,11 +1,11 @@
 <script setup lang="ts">
   import { computed, unref } from 'vue';
   import { useMenu } from './useLayoutMenu';
-  import { BasicMenu } from '/@/components/psc-menu';
+  import { BasicMenu } from '../../../components/hp-menu';
   import { useGo } from '/@/hooks/web/usePage';
   import { useMenuSetting } from '/@/hooks/setting/useMenuSetting';
   import { useDesign } from '/@/hooks/web/useDesign';
-  import { BasicReadonly } from '/@/components/psc-readonly';
+  import { BasicReadonly } from '../../../components/hp-readonly';
 
   // 路由跳转函数
   const go = useGo();

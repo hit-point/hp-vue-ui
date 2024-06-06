@@ -1,4 +1,4 @@
-import { ListType } from '/@/components/psc-list/src/types';
+import { ListType } from '../../../components/hp-list/src/types';
 
 /**
  * @description: 侧边栏列表组件返回值

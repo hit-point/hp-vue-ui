@@ -1,4 +1,4 @@
-export const prefixCls = 'pasco';
+export const prefixCls = 'hp';
 
 // project的颜色配置
 // app theme preset color

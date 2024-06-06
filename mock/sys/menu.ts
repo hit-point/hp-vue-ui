@@ -248,7 +248,7 @@ export default [
           menu = [homeRoute, backRoute, directivesRoute, modulesRoute, systemRoute];
           break;
         case '2':
-          menu = [homeRoute, directivesRoute, modulesRoute];
+          menu = [homeRoute, backRoute, directivesRoute, modulesRoute];
           break;
         default:
           menu = [];

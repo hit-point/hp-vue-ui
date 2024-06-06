@@ -10,7 +10,7 @@
   // 路由跳转函数
   const go = useGo();
 
-  // 模块样式前缀————pasco-layout-menu
+  // 模块样式前缀————hp-layout-menu
   const { prefixCls } = useDesign('layout-menu');
 
   // 侧边栏配置
@@ -60,7 +60,7 @@
         v-if="!getCollapsed"
         :style="{ color: unref(getMenuProps).textColor }"
         :class="`${prefixCls}-title`"
-        textVal="Pasco Admin"
+        textVal="Hp Admin"
       />
     </div>
     <BasicMenu v-bind="getMenuProps" />

@@ -1,9 +1,9 @@
 {
-  "name": "pasco-admin",
+  "name": "hp-vue-ui",
   "version": "2.0.0",
   "private": true,
   "author": {
-    "name": "pasco152",
+    "name": "hit-point",
     "email": "13213726869@163.com"
   },
   "scripts": {

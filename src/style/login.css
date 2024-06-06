@@ -2,17 +2,16 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  background: url('/src/assets/login-bg.jpg') no-repeat center right;
+  background-image: url('/src/assets/loginBg.webp');
+  background-size: cover;
 }
 
 .login-box {
   display: flex;
   align-items: center;
   text-align: center;
-}
-
-.login-form {
-  width: 360px;
+  flex: 1;
+  max-width: 550px;
 }
 
 @media screen and (max-width: 1180px) {

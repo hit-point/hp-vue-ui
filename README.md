@@ -19,7 +19,7 @@ git clone https://github.com/hit-point/hp-vue-ui.git
 ### 安装依赖
 
 ```bash
-cd pasco-admin
+cd hp-vue-ui
 
 pnpm bootstrap
 ```
@@ -72,8 +72,8 @@ pnpm build
 
 ## 维护者
 
-[Pasco152](https://github.com/hit-point)
+[hit-point](https://github.com/hit-point)
 
 ## 许可证
 
-[MIT © 2024-present, pasco-admin](./LICENSE)
+[MIT © 2024-present, hp-vue-ui](./LICENSE)

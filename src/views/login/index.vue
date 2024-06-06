@@ -14,7 +14,7 @@
       const loading = ref(false);
       const userStore = useUserStore();
       const loginData = reactive({
-        username: 'admin',
+        username: 'hp',
         password: '123456',
         captcha: '',
       });
@@ -96,10 +96,13 @@
 
       return () => (
         <div class="login-container">
+          <div style={{ flex: 1 }}></div>
           <div class="login-box">
-            <Motion class="login-form">
-              <el-card style={{ borderRadius: '4%' }}>
-                <h2>Pasco Admin</h2>
+            <Motion>
+              <el-card
+                style={{ borderRadius: '6px', backgroundColor: 'rgba(255, 255, 255, 0.65)' }}
+              >
+                <h2>Hp-vue-ui</h2>
                 <el-form ref={loginFormRef} model={loginData} rules={loginRules}>
                   <el-form-item prop={'username'}>
                     <div class="w-full">
@@ -133,7 +136,7 @@
                 </el-form>
                 <BasicButton {...unref(btnProps)}>登录</BasicButton>
                 <div class={'flex justify-around'}>
-                  <el-text>账号：admin/test</el-text>
+                  <el-text>账号：hp/test</el-text>
                   <br />
                   <el-text>密码：123456</el-text>
                 </div>

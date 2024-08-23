@@ -1,73 +1,117 @@
+// {
+//   "typescript.tsdk": "./node_modules/typescript/lib",
+//   "npm.packageManager": "pnpm",
+//   "editor.tabSize": 2,
+//   "editor.defaultFormatter": "esbenp.prettier-vscode",
+//   "files.eol": "\n",
+//   "stylelint.enable": true,
+//   "stylelint.validate": [
+//     "css",
+//     "less",
+//     "postcss",
+//     "scss",
+//     "vue",
+//     "sass"
+//   ],
+//   "[javascriptreact]": {
+//     "editor.defaultFormatter": "esbenp.prettier-vscode"
+//   },
+//   "[typescript]": {
+//     "editor.defaultFormatter": "esbenp.prettier-vscode"
+//   },
+//   "[typescriptreact]": {
+//     "editor.defaultFormatter": "esbenp.prettier-vscode"
+//   },
+//   "[html]": {
+//     "editor.defaultFormatter": "esbenp.prettier-vscode"
+//   },
+//   "[css]": {
+//     "editor.defaultFormatter": "esbenp.prettier-vscode"
+//   },
+//   "[less]": {
+//     "editor.defaultFormatter": "esbenp.prettier-vscode"
+//   },
+//   "[scss]": {
+//     "editor.defaultFormatter": "esbenp.prettier-vscode"
+//   },
+//   "[markdown]": {
+//     "editor.defaultFormatter": "esbenp.prettier-vscode"
+//   },
+//   "editor.codeActionsOnSave": {
+//     "source.fixAll.eslint": "explicit",
+//     "source.fixAll.stylelint": "explicit"
+//   },
+//   "[vue]": {
+//     "editor.codeActionsOnSave": {
+//       "source.fixAll.eslint": "explicit",
+//       "source.fixAll.stylelint": "explicit"
+//     },
+//     "editor.defaultFormatter": "esbenp.prettier-vscode"
+//   },
+//   "i18n-ally.localesPaths": [
+//     "src/locales/lang"
+//   ],
+//   "i18n-ally.keystyle": "nested",
+//   "i18n-ally.sortKeys": true,
+//   "i18n-ally.namespace": true,
+//   "i18n-ally.pathMatcher": "{locale}/{namespaces}.{ext}",
+//   "i18n-ally.enabledParsers": [
+//     "json",
+//     "ts",
+//     "js"
+//   ],
+//   "i18n-ally.sourceLanguage": "en",
+//   "i18n-ally.displayLanguage": "zh-CN",
+//   "i18n-ally.enabledFrameworks": [
+//     "vue",
+//     "react"
+//   ],
+//   "terminal.integrated.scrollback": 10000,
+//   // 按钮权限指令颜色更换
+//   "vscodeCustomCodeColor.highlightValue": "v-auth",
+//   "vscodeCustomCodeColor.highlightValueColor": "#6366f1",
+// }
+
 {
-  "typescript.tsdk": "./node_modules/typescript/lib",
-  "npm.packageManager": "pnpm",
-  "editor.tabSize": 2,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "files.eol": "\n",
-  "stylelint.enable": true,
-  "stylelint.validate": [
-    "css",
-    "less",
-    "postcss",
-    "scss",
-    "vue",
-    "sass"
-  ],
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.formatOnType": true, // 控制编辑器在键入一行后是否自动格式化该行。
+  "editor.formatOnSave": true, // 在保存时格式化文件。格式化程序必须可用，延迟后文件不能保存，并且编辑器不能关闭。
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // 定义一个默认格式化程序, 该格式化程序优先于所有其他格式化程序设置。必须是提供格式化程序的扩展的标识符
   },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.tabSize": 2, // 一个制表符等于的空格数。当 #editor.detectIndentation# 打开时，将根据文件内容替代此设置。
+  "editor.formatOnPaste": true, // 控制编辑器是否自动格式化粘贴的内容。格式化程序必须可用，并且能针对文档中的某一范围进行格式化。
+  "editor.guides.bracketPairs": "active", // 控制是否启用括号对指南。active: 仅为活动括号对启用括号对参考线。
+  "files.autoSave": "afterDelay", // 控制具有未保存更改的编辑器的 自动保存。afterDelay: 在配置的 #files.autoSaveDelay# 之后，会自动保存具有更改的编辑器。
+  "git.confirmSync": false, // 同步 Git 存储库前请先进行确认。
+  "workbench.startupEditor": "newUntitledFile", // 在没有从上一会话中恢复出信息的情况下，控制启动时显示的编辑器。newUntitledFile: 打开新的无标题文本文件(仅在打开空窗口时适用)。
+  "editor.suggestSelection": "first", // 控制在建议列表中如何预先选择建议。first: 始终选择第一个建议
+  "editor.acceptSuggestionOnCommitCharacter": false, // 控制是否应在遇到提交字符时接受建议。例如，在 JavaScript 中，半角分号 (;) 可以为提交字符，能够在接受建议的同时键入该字符。
+  "css.lint.propertyIgnoredDueToDisplay": "ignore", // 由于 display 属性值，属性被忽略。例如，使用 display: inline 时，width、height、margin-top、margin-bottom 和 float 属性将不起作用。
+  "editor.quickSuggestions": {
+    // 控制键入时是否应自动显示建议。这可以用于在注释、字符串和其他代码中键入时进行控制。可配置快速建议以显示为虚影文本或建议小组件。另请注意控制建议是否由特殊字符触发的“#editor.suggestOnTriggerCharacters#”设置。
+    "other": true, // 在字符串和注释外启用快速建议。
+    "comments": true, // 在注释内启用快速建议。
+    "strings": true // 在字符串内启用快速建议。
   },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "files.associations": {
+    // 配置语言的文件关联(如 "*.extension": "html")。这些关联的优先级高于已安装语言的默认关联。
+    "editor.snippetSuggestions": "top" // 设置其他代码提示在上部‘top’
   },
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[less]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    // 针对某种语言，配置替代编辑器设置
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // 定义一个默认格式化程序, 该格式化程序优先于所有其他格式化程序设置。必须是提供格式化程序的扩展的标识符。
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.fixAll.stylelint": "explicit"
+    // 要在保存时运行的代码操作种类
+    "source.fixAll.eslint": true // 自动修复
   },
-  "[vue]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit",
-      "source.fixAll.stylelint": "explicit"
-    },
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "i18n-ally.localesPaths": [
-    "src/locales/lang"
-  ],
-  "i18n-ally.keystyle": "nested",
-  "i18n-ally.sortKeys": true,
-  "i18n-ally.namespace": true,
-  "i18n-ally.pathMatcher": "{locale}/{namespaces}.{ext}",
-  "i18n-ally.enabledParsers": [
-    "json",
-    "ts",
-    "js"
-  ],
-  "i18n-ally.sourceLanguage": "en",
-  "i18n-ally.displayLanguage": "zh-CN",
-  "i18n-ally.enabledFrameworks": [
-    "vue",
-    "react"
-  ],
-  "terminal.integrated.scrollback": 10000,
-  // 按钮权限指令颜色更换
-  "vscodeCustomCodeColor.highlightValue": "v-auth",
-  "vscodeCustomCodeColor.highlightValueColor": "#6366f1",
+  "i18n-ally.localesPaths": "locales", // 翻译文件夹路径 (相对于项目根目录)，你也可以使用Glob匹配模式
+  "i18n-ally.keystyle": "nested", // 翻译路径格式
+  "i18n-ally.sortKeys": true, // 保存排序后的JSON/YAML
+  "i18n-ally.namespace": true, // 启用命名空间。
+  "i18n-ally.enabledParsers": ["yaml", "js"], // 指定启用文件格式
+  "i18n-ally.sourceLanguage": "en", // 翻译源语言
+  "i18n-ally.displayLanguage": "zh-CN", // 显示语言
+  "i18n-ally.enabledFrameworks": ["vue"], // 指定要使用的框架支持。如果未设置任何值，插件将自动检测框架
+  "iconify.excludes": ["el"] // 这个具体不清楚，应该是图标导入的设置
 }
